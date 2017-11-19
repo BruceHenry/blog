@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Array to List &amp;&amp; List to Array | Han&#39;s Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Convert ArrayList to Array12List&amp;lt;T&amp;gt; list = new ArrayList&amp;lt;T&amp;gt;();T [] countries = list.toArray(new T[list.size()]);  Convert Array to A">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Array to List &amp;&amp; List to Array">
+<meta property="og:url" content="http://brucehenry.github.io/blog/public/2017/11/19/ArrayToList/index.html">
+<meta property="og:site_name" content="Han&#39;s Portfolio">
+<meta property="og:description" content="Convert ArrayList to Array12List&amp;lt;T&amp;gt; list = new ArrayList&amp;lt;T&amp;gt;();T [] countries = list.toArray(new T[list.size()]);  Convert Array to ArrayList in Java Flexible Length Way(Recommend) 1List li">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-11-19T07:58:48.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Array to List &amp;&amp; List to Array">
+<meta name="twitter:description" content="Convert ArrayList to Array12List&amp;lt;T&amp;gt; list = new ArrayList&amp;lt;T&amp;gt;();T [] countries = list.toArray(new T[list.size()]);  Convert Array to ArrayList in Java Flexible Length Way(Recommend) 1List li">
+  
+    <link rel="alternate" href="/atom.xml" title="Han&#39;s Portfolio" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/public/css/style.css">
+  
+
+  <link href="//brucehenry.github.io/css/w3.css" rel="stylesheet">
+  <link href="//brucehenry.github.io/src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="//brucehenry.github.io/css/styles.css" rel="stylesheet">
+
+  <script src="//brucehenry.github.io/src/jquery/jquery.min.js"></script>
+  <script src="//brucehenry.github.io/src/bootstrap/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="//brucehenry.github.io/index.html"><b>Han Bao</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="//brucehenry.github.io/index.html">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="//brucehenry.github.io/projects.html">Projects </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="//brucehenry.github.io/blog/public/">Blogs</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+      <div class="outer">
+        <section id="main"><article id="post-ArrayToList" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/public/2017/11/19/ArrayToList/" class="article-date">
+  <time datetime="2017-11-19T07:52:54.000Z" itemprop="datePublished">2017-11-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Array to List &amp;&amp; List to Array
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Convert-ArrayList-to-Array"><a href="#Convert-ArrayList-to-Array" class="headerlink" title="Convert ArrayList to Array"></a>Convert ArrayList to Array</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">T [] countries = list.toArray(<span class="keyword">new</span> T[list.size()]);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Convert-Array-to-ArrayList-in-Java"><a href="#Convert-Array-to-ArrayList-in-Java" class="headerlink" title="Convert Array to ArrayList in Java"></a>Convert Array to ArrayList in Java</h2><ul>
+<li><p>Flexible Length Way(Recommend)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList(Arrays.asList(array));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Inflexible Way</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList(Arrays.asList(array));</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://brucehenry.github.io/blog/public/2017/11/19/ArrayToList/" data-id="cja6h0wmm0000bkung5i6uhmn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/public/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/public/2017/11/19/JavaInstallation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java Installation</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/public/tags/Java/">Java</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/public/tags/Java/" style="font-size: 10px;">Java</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/public/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/public/2017/11/19/ArrayToList/">Array to List &amp;&amp; List to Array</a>
+          </li>
+        
+          <li>
+            <a href="/blog/public/2017/11/19/JavaInstallation/">Java Installation</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Han Bao<br>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/public/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/public/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/public/fancybox/jquery.fancybox.css">
+  <script src="/blog/public/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/public/js/script.js"></script>
+
+  </div>
+</body>
+</html>
