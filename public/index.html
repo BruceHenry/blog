@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/public/2017/11/19/ArrayToList/">Array to List &amp;&amp; List to Array</a>
+      <a class="article-title" href="/blog/public/2017/11/19/ArrayToList/">Array &lt;--&gt; List</a>
     </h1>
   
 
@@ -83,10 +83,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Convert-ArrayList-to-Array"><a href="#Convert-ArrayList-to-Array" class="headerlink" title="Convert ArrayList to Array"></a>Convert ArrayList to Array</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">T [] countries = list.toArray(<span class="keyword">new</span> T[list.size()]);</span><br></pre></td></tr></table></figure>
+        <h2 id="Convert-ArrayList-to-Array"><a href="#Convert-ArrayList-to-Array" class="headerlink" title="Convert ArrayList to Array"></a>Convert ArrayList to Array</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">T [] array = list.toArray(<span class="keyword">new</span> T[list.size()]);</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="Convert-Array-to-ArrayList-in-Java"><a href="#Convert-Array-to-ArrayList-in-Java" class="headerlink" title="Convert Array to ArrayList in Java"></a>Convert Array to ArrayList in Java</h2><ul>
-<li><p>Flexible Length Way(Recommend)</p>
+<li><p>Flexible Length Way <strong>(Recommend)</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList(Arrays.asList(array));</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Inflexible Way</p>
@@ -130,19 +130,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>Download JDK and install it.</p>
+        <h2 id="1-Download-JDK-and-install-it"><a href="#1-Download-JDK-and-install-it" class="headerlink" title="1. Download JDK and install it."></a>1. Download JDK and install it.</h2><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Click here to download</a></p>
+<hr>
+<h2 id="2-Set-the-environment-varibles-as-following"><a href="#2-Set-the-environment-varibles-as-following" class="headerlink" title="2. Set the environment varibles as following,"></a>2. Set the environment varibles as following,</h2><ul>
+<li><p>JAVA_HOME：C:\Program Files\Java\jdk1.8.0_102</p>
+<p>   <strong>Note:</strong>  Input the directory you installed the JDK, the above example is the default path on Windows.</p>
 </li>
-<li><p>Set the environment varibles as following,</p>
+<li><p>JDK_HOME：%JAVA_HOME%</p>
 </li>
-</ol>
-<ul>
-<li>JAVA_HOME：C:\Program Files\Java\jdk1.8.0_102</li>
-<li>JDK_HOME：%JAVA_HOME%</li>
 <li>JRE_HOME：%JAVA_HOME%\jre</li>
-<li>Path：……;%JAVA_HOME%\bin</li>
-<li>CLASSPATH：.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</li>
+<li><p>Path：……;%JAVA_HOME%\bin</p>
+<p>  <strong>Note:</strong> Do <strong>NOT</strong> change the original content of “Path”.</p>
+</li>
+<li><p>CLASSPATH：.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</p>
+</li>
 </ul>
+<hr>
+<h2 id="3-Examine-the-Installation"><a href="#3-Examine-the-Installation" class="headerlink" title="3. Examine the Installation"></a>3. Examine the Installation</h2><p>Open the Terminal, input:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+<p>You should see the version information of Java.</p>
 
       
     </div>
@@ -203,7 +209,7 @@
       <ul>
         
           <li>
-            <a href="/blog/public/2017/11/19/ArrayToList/">Array to List &amp;&amp; List to Array</a>
+            <a href="/blog/public/2017/11/19/ArrayToList/">Array &lt;--&gt; List</a>
           </li>
         
           <li>
