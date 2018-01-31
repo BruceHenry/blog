@@ -1,26 +1,31 @@
 ---
-title: Array <--> List
+title: Array and List in Java
 date: 2017-11-19 02:52:54
 tags: Java
 ---
+In Java, `Array` and `List` have a lot in common. Now I am going to introduce how to convert them to each other.
 
-## Convert ArrayList to Array
+#### 1. How to convert `List` to `Array`?
 
-{% codeblock lang:java %}
+```java
     List<T> list = new ArrayList<T>();
     T [] array = list.toArray(new T[list.size()]);
-{% endcodeblock %}
+```
 
----
+***
 
-## Convert Array to ArrayList in Java
+#### 2. How to convert `Array` to `List` in Java?
 
-- Flexible Length Way **(Recommend)**
-{% codeblock lang:java %}
+There are two ways to convert `Array` to `List`.
+
+- Flexible Length Way **(Recommendation)**
+```java
     List list = new ArrayList(Arrays.asList(array));
-{% endcodeblock %}
+```
+The above is recommended because it returns an `ArrayList` which has flexible length (you can add extra elements).
+
 
 - Inflexible Way
-{% codeblock lang:java %}
+```java
     List list = Arrays.asList(array);
-{% endcodeblock %}
+```
