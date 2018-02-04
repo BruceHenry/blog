@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Han&#39;s Portfolio</title>
+  <title>Make an Interactive Map 01 - &#34;Let&#39;s make a colorful world!&#34; | Han&#39;s Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Han&#39;s Portfolio">
-<meta property="og:url" content="http://brucehenry.github.io/blog/public/index.html">
+  <meta name="description" content="PrefixI am going to make a series of blogs to show you how to make all kinds of interactive map on a web page. Before start, you should have some basic knowledg">
+<meta name="keywords" content="JavaScript,D3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Make an Interactive Map 01 - &quot;Let&#39;s make a colorful world!&quot;">
+<meta property="og:url" content="http://brucehenry.github.io/blog/public/2018/01/19/InteractiveMap_01/index.html">
 <meta property="og:site_name" content="Han&#39;s Portfolio">
+<meta property="og:description" content="PrefixI am going to make a series of blogs to show you how to make all kinds of interactive map on a web page. Before start, you should have some basic knowledge about HTML and JavaScript.  Now, let’s">
+<meta property="og:updated_time" content="2018-02-04T08:09:09.204Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Han&#39;s Portfolio">
+<meta name="twitter:title" content="Make an Interactive Map 01 - &quot;Let&#39;s make a colorful world!&quot;">
+<meta name="twitter:description" content="PrefixI am going to make a series of blogs to show you how to make all kinds of interactive map on a web page. Before start, you should have some basic knowledge about HTML and JavaScript.  Now, let’s">
   
     <link rel="alternate" href="/atom.xml" title="Han&#39;s Portfolio" type="application/atom+xml">
   
@@ -59,9 +64,7 @@
 </nav>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-InteractiveMap_01" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-InteractiveMap_01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/public/2018/01/19/InteractiveMap_01/" class="article-date">
   <time datetime="2018-01-19T07:52:54.000Z" itemprop="datePublished">2018-01-19</time>
@@ -78,8 +81,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/public/2018/01/19/InteractiveMap_01/">Make an Interactive Map 01 - &#34;Let&#39;s make a colorful world!&#34;</a>
+    <h1 class="article-title" itemprop="name">
+      Make an Interactive Map 01 - &#34;Let&#39;s make a colorful world!&#34;
     </h1>
   
 
@@ -121,119 +124,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-ArrayToList" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/public/2017/11/19/ArrayToList/" class="article-date">
-  <time datetime="2017-11-19T07:52:54.000Z" itemprop="datePublished">2017-11-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/public/2017/11/19/ArrayToList/">Array and List in Java</a>
-    </h1>
+    <a href="/blog/public/2017/11/19/ArrayToList/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Array and List in Java</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>In Java, <code>Array</code> and <code>List</code> have a lot in common. Now I am going to introduce how to convert them to each other.</p>
-<h4 id="1-How-to-convert-List-to-Array"><a href="#1-How-to-convert-List-to-Array" class="headerlink" title="1. How to convert List to Array?"></a>1. How to convert <code>List</code> to <code>Array</code>?</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">T [] array = list.toArray(<span class="keyword">new</span> T[list.size()]);</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="2-How-to-convert-Array-to-List-in-Java"><a href="#2-How-to-convert-Array-to-List-in-Java" class="headerlink" title="2. How to convert Array to List in Java?"></a>2. How to convert <code>Array</code> to <code>List</code> in Java?</h4><p>There are two ways to convert <code>Array</code> to <code>List</code>.</p>
-<ul>
-<li>Flexible Length Way <strong>(Recommendation)</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList(Arrays.asList(array));</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>The above is recommended because it returns an <code>ArrayList</code> which has flexible length (you can add extra elements).</p>
-<ul>
-<li>Inflexible Way<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = Arrays.asList(array);</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://brucehenry.github.io/blog/public/2017/11/19/ArrayToList/" data-id="cjd8gvpjw0000l4unifjpnynz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/public/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-JavaInstallation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/public/2017/11/19/JavaInstallation/" class="article-date">
-  <time datetime="2017-11-19T07:45:45.000Z" itemprop="datePublished">2017-11-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/public/2017/11/19/JavaInstallation/">How to install Java on Windows?</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Download-and-install-JDK"><a href="#1-Download-and-install-JDK" class="headerlink" title="1. Download and install JDK."></a>1. Download and install JDK.</h2><p>There are many ways to download JDK, but I recommend you to download it from <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle</a>.</p>
-<p>After downloading, install it just as you install other software. You’d better remember where you install it, because you need to set the environment variable later.</p>
-<hr>
-<h2 id="2-Set-the-environment-variables-as-following"><a href="#2-Set-the-environment-variables-as-following" class="headerlink" title="2. Set the environment variables as following."></a>2. Set the environment variables as following.</h2><p>This step is very <strong>important</strong>, please be patient.</p>
-<ul>
-<li><p>JAVA_HOME：C:\Program Files\Java\jdk1.8.0_102</p>
-<p>   <strong>Note:</strong>  Input the path where you installed JDK, the above example is the default path on Windows.</p>
-</li>
-<li><p>JDK_HOME：%JAVA_HOME%</p>
-</li>
-<li>JRE_HOME：%JAVA_HOME%\jre</li>
-<li><p>Path： <strong>Append</strong> <code>%JAVA_HOME%\bin</code> (you may need to append a <code>;</code> first. It depends on whether this was a <code>;</code> at the end of your original path. So you may append <code>;%JAVA_HOME%\bin</code>). Do <strong>NOT</strong> change the original content of “Path”.</p>
-</li>
-<li><p>CLASSPATH：.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</p>
-</li>
-</ul>
-<hr>
-<h2 id="3-Examine-the-Installation"><a href="#3-Examine-the-Installation" class="headerlink" title="3. Examine the Installation"></a>3. Examine the Installation</h2><p>Open the Terminal (On Windows, press ‘Win’ + ‘R’, then input <code>cmd</code> and press ‘Enter’), input:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-<p>You should see the version information of Java.</p>
-<hr>
-<h2 id="4-Welcome-to-the-world-of-Java"><a href="#4-Welcome-to-the-world-of-Java" class="headerlink" title="4. Welcome to the world of Java."></a>4. Welcome to the world of Java.</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://brucehenry.github.io/blog/public/2017/11/19/JavaInstallation/" data-id="cjd8gvpk30003l4unk6s2mlkw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/public/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
