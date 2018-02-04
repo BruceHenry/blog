@@ -148,7 +148,7 @@ function renderMap() {
         .domain([minValue, maxValue])
         .range(["#afe0ff", "#040066"]);
 
-    //Put color into the data
+    //Put color into the data object
     for (var country in data) {
         data[country]['fillColor'] = colorScale(data[country]['numberOfThings'])
     }
