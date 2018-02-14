@@ -29,6 +29,7 @@ For the above map, I use the following libraries,
 #### Show me the code! 
 Sure, the following is the code. You can also find it at this [Github repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/01).
 
+Also, you can find a more advanced map [here](https://brucehenry.github.io/WorldPopulationData/).
 ##### HTML
 ```html
 <!DOCTYPE html>
