@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Han&#39;s Portfolio</title>
+  <title>Make an Interactive Map 02 - &#34;Let&#39;s start an airline company!&#34; | Han&#39;s Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Han&#39;s Portfolio">
-<meta property="og:url" content="http://brucehenry.github.io/blog/public/index.html">
+  <meta name="description" content="What is this map?This map shows the change of relations among nodes by time. Well, you can consider it as an airline company which changes its airlines every ye">
+<meta name="keywords" content="JavaScript,D3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Make an Interactive Map 02 - &quot;Let&#39;s start an airline company!&quot;">
+<meta property="og:url" content="http://brucehenry.github.io/blog/public/2018/01/31/InteractiveMap_02/index.html">
 <meta property="og:site_name" content="Han&#39;s Portfolio">
+<meta property="og:description" content="What is this map?This map shows the change of relations among nodes by time. Well, you can consider it as an airline company which changes its airlines every year. You browser does not support iframe">
+<meta property="og:updated_time" content="2018-02-14T10:45:31.305Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Han&#39;s Portfolio">
+<meta name="twitter:title" content="Make an Interactive Map 02 - &quot;Let&#39;s start an airline company!&quot;">
+<meta name="twitter:description" content="What is this map?This map shows the change of relations among nodes by time. Well, you can consider it as an airline company which changes its airlines every year. You browser does not support iframe">
   
     <link rel="alternate" href="/atom.xml" title="Han&#39;s Portfolio" type="application/atom+xml">
   
@@ -59,9 +64,7 @@
 </nav>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-InteractiveMap_02" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-InteractiveMap_02" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/public/2018/01/31/InteractiveMap_02/" class="article-date">
   <time datetime="2018-01-31T07:52:54.000Z" itemprop="datePublished">2018-01-31</time>
@@ -78,8 +81,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/public/2018/01/31/InteractiveMap_02/">Make an Interactive Map 02 - &#34;Let&#39;s start an airline company!&#34;</a>
+    <h1 class="article-title" itemprop="name">
+      Make an Interactive Map 02 - &#34;Let&#39;s start an airline company!&#34;
     </h1>
   
 
@@ -110,191 +113,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-InteractiveMap_01" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/public/2018/01/19/InteractiveMap_01/" class="article-date">
-  <time datetime="2018-01-19T07:52:54.000Z" itemprop="datePublished">2018-01-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/public/categories/Data-Visualization/">Data Visualization</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/public/2018/01/19/InteractiveMap_01/">Make an Interactive Map 01 - &#34;Let&#39;s make a colorful world!&#34;</a>
-    </h1>
+    <a href="/blog/public/2018/01/19/InteractiveMap_01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Make an Interactive Map 01 - &#34;Let&#39;s make a colorful world!&#34;</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Prefix"><a href="#Prefix" class="headerlink" title="Prefix"></a>Prefix</h4><p>I am going to make a series of blogs to show you how to make all kinds of <strong>interactive map</strong> on a web page. Before start, you should have some basic knowledge about <strong>HTML</strong> and <strong>JavaScript</strong>.</p>
-<hr>
-<h4 id="Now-let’s-make-a-colorful-world"><a href="#Now-let’s-make-a-colorful-world" class="headerlink" title="Now, let’s make a colorful world!"></a>Now, let’s make a colorful world!</h4><p>First, let’s see what you will be able to make.</p>
-<p>This is a map that shows the median age of each country from 2015 to 2100 predicted by <a href="https://esa.un.org/unpd/wpp/Download/Standard/Population/" target="_blank" rel="noopener">United Nations</a>.</p>
-<iframe width="820" height="540" src="https://brucehenry.github.io/blog-webpage/interactive-map/01/basic-datamaps.html">You browser does not support iframe tag, <a href="https://brucehenry.github.io/blog-webpage/interactive-map/01/basic-datamaps.html" target="_blank">click here to visit</a>.</iframe>
-
-<hr>
-<h4 id="What-tools-do-you-use"><a href="#What-tools-do-you-use" class="headerlink" title="What tools do you use?"></a>What tools do you use?</h4><p>For the above map, I use the following libraries,</p>
-<ul>
-<li><a href="http://datamaps.github.io/" target="_blank" rel="noopener">DataMaps</a>: A useful tool to render a <code>svg</code> map. Many basic interactions like changing color when the mouse is over are already included. </li>
-<li><a href="https://d3js.org/" target="_blank" rel="noopener">D3</a>: A very powerful JS library especially in making data visualization. There are so many powerful features in D3, like you can use D3 as a DOM selector instead of jQuery. But we only use a tiny part of it in this map. (The latest version of D3 is v4, but <strong>DataMaps</strong> is using d3.v3).</li>
-</ul>
-<hr>
-<h4 id="Show-me-the-code"><a href="#Show-me-the-code" class="headerlink" title="Show me the code!"></a>Show me the code!</h4><p>Sure, the following is the code. You can also find it at this <a href="https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/01" target="_blank" rel="noopener">Github repository</a>.</p>
-<h5 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Basic Interactive Map<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./basic-datamaps.css"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"map"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"input"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">rowspan</span>=<span class="string">"2"</span>&gt;</span>Year<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"19"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"year"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">min</span>=<span class="string">"2015"</span> <span class="attr">max</span>=<span class="string">"2100"</span> <span class="attr">step</span>=<span class="string">"5"</span> <span class="attr">value</span>=<span class="string">"2015"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> <span class="attr">id</span>=<span class="string">"year"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2015<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2020<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2025<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2030<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2035<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2040<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2045<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2050<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2055<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2060<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2065<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2070<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2075<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2080<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2085<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2090<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2095<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>2100<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span> Try dragging the slider.<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./basic-datamaps.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h5 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> json_data;<span class="comment">//To store the data from JSON file loaded by d3.json()</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderMap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = &#123;&#125;;<span class="comment">//A object to store values and colors, i.e. &#123; USA: &#123; numberOfThings: 37.6, fillColor: "#333e90"&#125; &#125;</span></span><br><span class="line">    <span class="keyword">var</span> values = [];<span class="comment">//The array to store all the values in order to find min and max</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> year = <span class="built_in">document</span>.getElementById(<span class="string">'year'</span>).value;<span class="comment">//Get value from input</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//Iterate the data array to retrieve the value of each country in the specific year</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> country <span class="keyword">in</span> json_data) &#123;</span><br><span class="line">        <span class="keyword">var</span> value = json_data[country][<span class="string">'data'</span>][year];</span><br><span class="line">        data[country] = &#123;<span class="attr">numberOfThings</span>: value&#125;;</span><br><span class="line">        values.push(value)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Get min and max values to set the color scale</span></span><br><span class="line">    <span class="keyword">var</span> minValue = <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>, values),</span><br><span class="line">        maxValue = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, values);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Use d3 to convert number to color</span></span><br><span class="line">    <span class="keyword">var</span> colorScale = d3.scale.linear()</span><br><span class="line">        .domain([minValue, maxValue])</span><br><span class="line">        .range([<span class="string">"#afe0ff"</span>, <span class="string">"#040066"</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Put color into the data array for each country</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> country <span class="keyword">in</span> data) &#123;</span><br><span class="line">        data[country][<span class="string">'fillColor'</span>] = colorScale(data[country][<span class="string">'numberOfThings'</span>])</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//Call DataMaps</span></span><br><span class="line">    <span class="keyword">new</span> Datamaps(&#123;</span><br><span class="line">        element: <span class="built_in">document</span>.getElementById(<span class="string">'map'</span>),</span><br><span class="line">        projection: <span class="string">'mercator'</span>, <span class="comment">// big world map</span></span><br><span class="line">        fills: &#123;<span class="attr">defaultFill</span>: <span class="string">'#F5F5F5'</span>&#125;,<span class="comment">// countries don't listed in dataset will be painted with this color</span></span><br><span class="line">        data: data,</span><br><span class="line">        geographyConfig: &#123;</span><br><span class="line">            borderColor: <span class="string">'#d7d7d7'</span>,</span><br><span class="line">            highlightBorderWidth: <span class="number">2</span>,</span><br><span class="line">            highlightBorderColor: <span class="string">'#e66d18'</span>,</span><br><span class="line">            popupTemplate: <span class="function"><span class="keyword">function</span> (<span class="params">geo, data</span>) </span>&#123;<span class="comment">// show desired information in tooltip</span></span><br><span class="line">                <span class="keyword">if</span> (!data) <span class="comment">// don't show tooltip if country don't present in dataset</span></span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                <span class="comment">// tooltip content</span></span><br><span class="line">                <span class="keyword">return</span> [<span class="string">'&lt;div class="hoverinfo"&gt;'</span>,</span><br><span class="line">                    <span class="string">'&lt;strong&gt;'</span>, geo.properties.name, <span class="string">'&lt;/strong&gt;'</span>,</span><br><span class="line">                    <span class="string">'&lt;br&gt;Median Age: &lt;strong&gt;'</span>, data.numberOfThings, <span class="string">'&lt;/strong&gt;'</span>,</span><br><span class="line">                    <span class="string">'&lt;/div&gt;'</span>].join(<span class="string">''</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Asynchronously load the data file</span></span><br><span class="line">d3.json(<span class="string">"./MedianAge.json"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    json_data = data;</span><br><span class="line">    renderMap();<span class="comment">//Render the map after loading the data</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">///Remove the old map and render a new map when the user change input</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'year'</span>).oninput = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//Remove the old map</span></span><br><span class="line">    <span class="keyword">var</span> mapNode = <span class="built_in">document</span>.getElementById(<span class="string">"map"</span>);</span><br><span class="line">    <span class="keyword">while</span> (mapNode.firstChild) &#123;</span><br><span class="line">        mapNode.removeChild(mapNode.firstChild);</span><br><span class="line">    &#125;</span><br><span class="line">    renderMap();<span class="comment">//Render a new map when the year is changed</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h5 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#map</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">425px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#input</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#e66d18</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">25px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">tr</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#0026bf</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#year</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-appearance</span>: none;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">98%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#99ccff</span>;</span><br><span class="line">    <span class="attribute">outline</span>: none;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.7</span>;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: .<span class="number">2s</span>;</span><br><span class="line">    <span class="attribute">transition</span>: opacity .<span class="number">2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#year</span><span class="selector-pseudo">::-webkit-slider-thumb</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-appearance</span>: none;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#0462ff</span>;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#year</span><span class="selector-pseudo">::-moz-range-thumb</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#0462ff</span>;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#year</span><span class="selector-pseudo">::-moz-range-track</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#e66d18</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h5 id="Part-of-the-Data-File"><a href="#Part-of-the-Data-File" class="headerlink" title="Part of the Data File"></a>Part of the Data File</h5><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"BDI"</span>: &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"Burundi"</span>,</span><br><span class="line">        <span class="attr">"data"</span>: &#123;</span><br><span class="line">            <span class="attr">"2015"</span>: <span class="number">17.6</span>,</span><br><span class="line">            <span class="attr">"2020"</span>: <span class="number">17.5</span>,</span><br><span class="line">            <span class="attr">"2025"</span>: <span class="number">17.8</span>,</span><br><span class="line">            <span class="attr">"2030"</span>: <span class="number">18.6</span>,</span><br><span class="line">            <span class="attr">"2035"</span>: <span class="number">19.5</span>,</span><br><span class="line">            <span class="attr">"2040"</span>: <span class="number">20.4</span>,</span><br><span class="line">            <span class="attr">"2045"</span>: <span class="number">21.2</span>,</span><br><span class="line">            <span class="attr">"2050"</span>: <span class="number">22.0</span>,</span><br><span class="line">            <span class="attr">"2055"</span>: <span class="number">22.9</span>,</span><br><span class="line">            <span class="attr">"2060"</span>: <span class="number">23.8</span>,</span><br><span class="line">            <span class="attr">"2065"</span>: <span class="number">24.7</span>,</span><br><span class="line">            <span class="attr">"2070"</span>: <span class="number">25.8</span>,</span><br><span class="line">            <span class="attr">"2075"</span>: <span class="number">26.8</span>,</span><br><span class="line">            <span class="attr">"2080"</span>: <span class="number">27.8</span>,</span><br><span class="line">            <span class="attr">"2085"</span>: <span class="number">28.9</span>,</span><br><span class="line">            <span class="attr">"2090"</span>: <span class="number">29.8</span>,</span><br><span class="line">            <span class="attr">"2095"</span>: <span class="number">30.9</span>,</span><br><span class="line">            <span class="attr">"2100"</span>: <span class="number">31.9</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://brucehenry.github.io/blog/public/2018/01/19/InteractiveMap_01/" data-id="cjd8gvpk00001l4und3mleixp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/public/tags/D3/">D3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/public/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-ArrayToList" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/public/2017/11/19/ArrayToList/" class="article-date">
-  <time datetime="2017-11-19T07:52:54.000Z" itemprop="datePublished">2017-11-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/public/categories/Java-Basics/">Java Basics</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/public/2017/11/19/ArrayToList/">Array and List in Java</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>In Java, <code>Array</code> and <code>List</code> have a lot in common. Now I am going to introduce how to convert them to each other.</p>
-<h4 id="1-How-to-convert-List-to-Array"><a href="#1-How-to-convert-List-to-Array" class="headerlink" title="1. How to convert List to Array?"></a>1. How to convert <code>List</code> to <code>Array</code>?</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">T [] array = list.toArray(<span class="keyword">new</span> T[list.size()]);</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="2-How-to-convert-Array-to-List-in-Java"><a href="#2-How-to-convert-Array-to-List-in-Java" class="headerlink" title="2. How to convert Array to List in Java?"></a>2. How to convert <code>Array</code> to <code>List</code> in Java?</h4><p>There are two ways to convert <code>Array</code> to <code>List</code>.</p>
-<ul>
-<li>Flexible Length Way <strong>(Recommendation)</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList(Arrays.asList(array));</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>The above is recommended because it returns an <code>ArrayList</code> which has flexible length (you can add extra elements).</p>
-<ul>
-<li>Inflexible Way<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = Arrays.asList(array);</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://brucehenry.github.io/blog/public/2017/11/19/ArrayToList/" data-id="cjd8gvpjw0000l4unifjpnynz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/public/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaInstallation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/public/2017/11/19/JavaInstallation/" class="article-date">
-  <time datetime="2017-11-19T07:45:45.000Z" itemprop="datePublished">2017-11-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/public/categories/Java-Basics/">Java Basics</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/public/2017/11/19/JavaInstallation/">How to install Java on Windows?</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Download-and-install-JDK"><a href="#1-Download-and-install-JDK" class="headerlink" title="1. Download and install JDK."></a>1. Download and install JDK.</h2><p>There are many ways to download JDK, but I recommend you to download it from <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle</a>.</p>
-<p>After downloading, install it just as you install other software. You’d better remember where you install it, because you need to set the environment variable later.</p>
-<hr>
-<h2 id="2-Set-the-environment-variables-as-following"><a href="#2-Set-the-environment-variables-as-following" class="headerlink" title="2. Set the environment variables as following."></a>2. Set the environment variables as following.</h2><p>This step is very <strong>important</strong>, please be patient.</p>
-<ul>
-<li><p>JAVA_HOME：C:\Program Files\Java\jdk1.8.0_102</p>
-<p>   <strong>Note:</strong>  Input the path where you installed JDK, the above example is the default path on Windows.</p>
-</li>
-<li><p>JDK_HOME：%JAVA_HOME%</p>
-</li>
-<li>JRE_HOME：%JAVA_HOME%\jre</li>
-<li><p>Path： <strong>Append</strong> <code>%JAVA_HOME%\bin</code> (you may need to append a <code>;</code> first. It depends on whether this was a <code>;</code> at the end of your original path. So you may append <code>;%JAVA_HOME%\bin</code>). Do <strong>NOT</strong> change the original content of “Path”.</p>
-</li>
-<li><p>CLASSPATH：.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</p>
-</li>
-</ul>
-<hr>
-<h2 id="3-Examine-the-Installation"><a href="#3-Examine-the-Installation" class="headerlink" title="3. Examine the Installation"></a>3. Examine the Installation</h2><p>Open the Terminal (On Windows, press ‘Win’ + ‘R’, then input <code>cmd</code> and press ‘Enter’), input:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-<p>You should see the version information of Java.</p>
-<hr>
-<h2 id="4-Welcome-to-the-world-of-Java"><a href="#4-Welcome-to-the-world-of-Java" class="headerlink" title="4. Welcome to the world of Java."></a>4. Welcome to the world of Java.</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://brucehenry.github.io/blog/public/2017/11/19/JavaInstallation/" data-id="cjd8gvpk30003l4unk6s2mlkw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/public/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         

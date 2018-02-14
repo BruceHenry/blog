@@ -509,7 +509,7 @@ body {
 }
 .article-inner {
   overflow: auto;
-  height: 900px;
+  height: 850px;
 }
 .article-meta:before,
 .article-meta:after {
