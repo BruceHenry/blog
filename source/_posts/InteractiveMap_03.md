@@ -1,26 +1,34 @@
 ---
-title: Make an Interactive Map 02 - "Let's draw colorful lines!"
-date: 2018-01-31 02:52:54
+title: Make an Interactive Map 03 - "Let's make beautiful charts!"
+date: 2018-02-5 02:52:54
 categories:
 - Data Visualization
 tags:
 - JavaScript
 - D3
 ---
+#### Introduction
+This visualization extends from my last blog [Make an Interactive Map 02 - "Let's draw colorful lines!"](https://brucehenry.github.io/blog/public/2018/01/31/InteractiveMap_02/). Most of the code remains the same.
 
-#### What is this map?
-This map shows the change of relations among nodes by time. Well, you can consider it as an airline company which changes its airlines every year.
+I add some **charts** which are able to show some detailed data beyond the map.
 
-<iframe width="820" height="520" src="https://brucehenry.github.io/blog-webpage/interactive-map/02/advanced_map.html">You browser does not support iframe tag, <a href="https://brucehenry.github.io/blog-webpage/interactive-map/02/advanced_map.html" target="_blank">click here to visit</a>.</iframe>
+To generate the charts, I used [**echarts**](https://ecomfe.github.io/echarts-doc/public/en/index.html) which is an excellent data visualization tool from Baidu.
 
-#### What tools do you use?
-I still use the same tools as the last blog ([Make an Interactive Map 01](https://brucehenry.github.io/blog/public/2018/01/19/InteractiveMap_01/)): [DataMaps](http://datamaps.github.io/) and [D3](https://d3js.org/).
+Anyway, what I want to say is that you can add some other elements into the data visualization page combined with the map instead of adding too much elements into the map.
 
-However, this time I largely use d3 to manipulate `svg` elements based on the map. To understand the code, you may need to have some basic knowledge of D3.
+Let's first see how it looks,
+<iframe width="820" height="1060" src="https://brucehenry.github.io/blog-webpage/interactive-map/03/map_with_chart.html">You browser does not support iframe tag, <a href="https://brucehenry.github.io/blog-webpage/interactive-map/02/advanced_map.html" target="_blank">click here to visit</a>.</iframe>
 
----
-#### Show me the code! 
-You can find the code at this [Github repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/02).
+#### About Echarts
+Instead of making charts use D3, I choose to use echarts.
+
+Because the colors and styles are already well designed, I can focus more on something else.
+
+And furthermore, it is totally free.
+
+#### Code
+
+You can find the code at this [Github repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/03).
 
 ##### HTML
 ```html
@@ -30,7 +38,7 @@ You can find the code at this [Github repository](https://github.com/BruceHenry/
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Advanced Interactive Map</title>
-    <link rel="stylesheet" href="./advanced_map.css"/>
+    <link rel="stylesheet" href="./map_with_chart.css"/>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
@@ -42,9 +50,7 @@ You can find the code at this [Github repository](https://github.com/BruceHenry/
 
 <div id="input">
     <label for="city">City</label>
-    <select id="city" autocomplete="off">
-        <option disabled selected value> -- select a city --</option>
-    </select>
+    <select id="city" autocomplete="off"></select>
 
     <table>
         <tr>
@@ -83,7 +89,11 @@ You can find the code at this [Github repository](https://github.com/BruceHenry/
     </ul>
 </div>
 
-<script src="./advanced_map.js"></script>
+<div id="pie"></div>
+<div id="line"></div>
+
+<script src="./echarts.min.js"></script>
+<script src="./map_with_chart.js"></script>
 </body>
 </html>
 ```
@@ -175,6 +185,8 @@ function drawCity(location_data, projection) {
                 return;
             d3.select('#city').property('value', d.city);
             drawLine(relation_data, location_data, projection, 300);
+            renderPieChart(relation_data);
+            renderLineChart(relation_data);
         })
         .on('mouseover', function (d) {
             d3.select(this).attr('r', 7).style('cursor', "pointer");
@@ -186,7 +198,6 @@ function drawCity(location_data, projection) {
         .on('mouseout', function () {
             d3.select(this).attr('r', 4);
             popup.transition()
-                .duration(500)
                 .style('opacity', 0);
         });
 }
@@ -199,10 +210,6 @@ function drawLine(relation_data, location_data, projection, animation_length) {
     //Get values from the input
     var year = d3.select("#year").property("value");
     var city = d3.select("#city").property("value");
-
-    //If user drag the year slider without selecting any cities, return directly.
-    if (!city)
-        return;
 
     var data = relation_data[city][year];
 
@@ -237,6 +244,101 @@ function drawLine(relation_data, location_data, projection, animation_length) {
         })
 }
 
+function renderPieChart(relation_data) {
+    //Get values from the input
+    var year = d3.select("#year").property("value");
+    var city = d3.select("#city").property("value");
+
+    var legend_array = [];
+    var data = [];
+
+    var data_array = relation_data[city][year];
+    for (var i in data_array) {
+        var city_name = data_array[i];
+        legend_array.push(city_name);
+        data.push({
+            name: city_name,
+            value: 1
+        });
+    }
+    var pieChart = echarts.init(document.getElementById('pie'), null, {renderer: 'svg'});
+    var pieOption = {
+        title: {
+            text: city + ' in ' + year,
+            top: '3%',
+            left: '50%'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            top: '5%',
+            left: 'left',
+            data: legend_array
+        },
+        series: [{
+            type: 'pie',
+            radius: '60%',
+            center: ['65%', '60%'],
+            animation: false,
+            data: data,
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+    };
+    pieChart.setOption(pieOption);
+}
+
+function renderLineChart(relation_data) {
+    var city = d3.select("#city").property("value");
+    var city_data = relation_data[city];
+
+    var data = [];
+    for (var i = 2000; i <= 2018; i++) {
+        data.push(city_data[i.toString()].length)
+    }
+
+    var lineChart = echarts.init(document.getElementById('line'), null, {renderer: 'svg'});
+    var lineOption = {
+        title: {
+            text: city + ' from 2000 to 2018',
+            top: '4%'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            axisLabel: {
+                margin: 15
+            },
+            data: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            type: 'line',
+            data: data
+        }]
+    };
+    lineChart.setOption(lineOption);
+}
+
 
 //Asynchronously load the data files
 d3.json("./city_location.json", function (city_location) {
@@ -249,9 +351,12 @@ d3.json("./city_location.json", function (city_location) {
         for (var city in location_data) {
             city_selector.append('option').text(city);
         }
-
+        d3.select('#city').property('value', 'Los Angeles');
         renderMap(projection);//Render the map after loading the data
         drawCity(location_data, projection);//Draw cities after loading the data
+        drawLine(relation_data, location_data, projection, 0);
+        renderPieChart(relation_data);
+        renderLineChart(relation_data);
     });
 });
 
@@ -275,6 +380,8 @@ d3.select('#map').call(
 //Handle city selector change
 d3.select("#city").on('change', function () {
     drawLine(relation_data, location_data, projection, 300);
+    renderPieChart(relation_data);
+    renderLineChart(relation_data);
 });
 
 //Handle year input change
@@ -282,6 +389,7 @@ d3.select("#year").on('input', function () {
     renderMap(projection);
     drawCity(location_data, projection);
     drawLine(relation_data, location_data, projection, 0);
+    renderPieChart(relation_data);
 });
 ```
 ***
@@ -302,7 +410,7 @@ d3.select("#year").on('input', function () {
 
 #map {
     width: 800px;
-    height: 300px;
+    height: 250px;
     position: relative;
     margin: auto;
 }
@@ -372,5 +480,18 @@ tr {
 ul {
     color: #00242b;
     font-weight: bold;
+}
+
+#pie {
+    width: 700px;
+    height: 300px;
+    margin: auto;
+
+}
+
+#line {
+    width: 700px;
+    height: 300px;
+    margin: auto;
 }
 ```
