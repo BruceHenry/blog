@@ -23,7 +23,11 @@ This is a map that shows the median age of each country from 2015 to 2100 predic
 #### What tools do you use?
 For the above map, I use the following libraries,
 - [DataMaps](http://datamaps.github.io/): A useful tool to render a `svg` map. Many basic interactions like changing color when the mouse is over are already included. 
-- [D3](https://d3js.org/): A very powerful JS library especially in making data visualization. There are so many powerful features in D3, like you can use D3 as a DOM selector instead of jQuery. But we only use a tiny part of it in this map. (The latest version of D3 is v4, but **DataMaps** is using d3.v3).
+- [D3](https://d3js.org/): A very powerful JS library especially in making data visualization. 
+
+There are so many powerful features in D3, like you can use D3 as a DOM selector instead of jQuery. But we only use a tiny part of D3 in this map. 
+
+ALso, the latest version of D3 is v4, but **DataMaps** is using d3.v3.
 
 ---
 #### Show me the code! 

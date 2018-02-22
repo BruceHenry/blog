@@ -20,11 +20,9 @@ Let's first see how it looks,
 <iframe width="820" height="1060" src="https://brucehenry.github.io/blog-webpage/interactive-map/03/map_with_chart.html">You browser does not support iframe tag, <a href="https://brucehenry.github.io/blog-webpage/interactive-map/02/advanced_map.html" target="_blank">click here to visit</a>.</iframe>
 
 #### About Echarts
-Instead of making charts use D3, I choose to use echarts.
+Instead of making charts use D3, I choose to use echarts. Basic charts, like pie chart or line chart, should have a general template and style. Though D3 is good enough, it still costs a lot of time and effort to do that. I think in the future, visualization libraries like echarts will become more popular. In the meantime, D3 will be used for customized and advanced ones. It should be like **C++** and **Java**.     
 
-Because the colors and styles are already well designed, I can focus more on something else.
-
-And furthermore, it is totally free.
+Last but not least , echarts is totally **free**.
 
 #### Code
 
