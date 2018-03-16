@@ -3,6 +3,7 @@ title: How to install Java on Windows?
 date: 2017-11-19 02:45:45
 categories: Java Basics
 tags: Java
+description: Steps of installing Java and setting environment variables  on Windows.
 ---
 
 ## 1. Download and install JDK.

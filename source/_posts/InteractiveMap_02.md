@@ -1,11 +1,12 @@
 ---
-title: Make an Interactive Map 02 - "Let's draw colorful lines!"
+title: Make an Interactive Map 02 - Lines in the Map
 date: 2018-01-31 02:52:54
 categories:
 - Data Visualization
 tags:
 - JavaScript
 - D3
+description: Introduction of how to draw lines in a map using D3.js
 ---
 
 #### What is this map?

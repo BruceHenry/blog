@@ -1,11 +1,12 @@
 ---
-title: Make an Interactive Map 03 - "Let's make beautiful charts!"
+title: Make an Interactive Map 03 - Interaction with charts
 date: 2018-02-5 02:52:54
 categories:
 - Data Visualization
 tags:
 - JavaScript
 - D3
+description: Make the map interactive with charts (Echarts)
 ---
 #### Introduction
 This visualization extends from my last blog [Make an Interactive Map 02 - "Let's draw colorful lines!"](https://brucehenry.github.io/blog/public/2018/01/31/InteractiveMap_02/). Most of the code remains the same.
@@ -18,7 +19,7 @@ Anyway, what I want to say is that you can add some other elements into the data
 
 Let's first see how it looks,
 <iframe width="820" height="1060" src="https://brucehenry.github.io/blog-webpage/interactive-map/03/map_with_chart.html">You browser does not support iframe tag, <a href="https://brucehenry.github.io/blog-webpage/interactive-map/02/advanced_map.html" target="_blank">click here to visit</a>.</iframe>
-
+<!--more-->
 #### About Echarts
 Instead of making charts use D3, I choose to use echarts. Basic charts, like pie chart or line chart, should have a general template and style. Though D3 is good enough, it still costs a lot of time and effort to do that. I think in the future, visualization libraries like echarts will become more popular. In the meantime, D3 will be used for customized and advanced ones. It should be like **C++** and **Java**.     
 

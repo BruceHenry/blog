@@ -3,6 +3,7 @@ title: Array and List in Java
 date: 2017-11-19 02:52:54
 categories: Java Basics
 tags: Java
+description: Introduction of how to convert Array and List to each other in Java.
 ---
 In Java, `Array` and `List` have a lot in common. Now I am going to introduce how to convert them to each other.
 

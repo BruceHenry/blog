@@ -1,11 +1,12 @@
 ---
-title: Make an Interactive Map 01 - "Let's make a colorful world!"
+title: Make an Interactive Map 01 - Colorful World Map
 date: 2018-01-19 02:52:54
 categories:
 - Data Visualization
 tags:
 - JavaScript
 - D3
+description: Make a interactive world map with countries in different colors based on the data.
 ---
 
 #### Prefix
