@@ -1,5 +1,5 @@
 ---
-title: Make an Interactive Map 03 - Interaction with charts
+title: Make an Interactive Map 03 - Interaction with Charts
 date: 2018-02-5 02:52:54
 categories:
 - Data Visualization
@@ -8,485 +8,40 @@ tags:
 - D3
 description: Make the map interactive with charts (Echarts)
 ---
-#### Introduction
-This visualization extends from my last blog [Make an Interactive Map 02 - "Let's draw colorful lines!"](https://brucehenry.github.io/blog/public/2018/01/31/InteractiveMap_02/). Most of the code remains the same.
+#### Preview: Map with Charts
+This visualization extends from the one [my previous blog](https://brucehenry.github.io/blog/public/2018/01/31/InteractiveMap_02/).
 
-I add some **charts** which are able to show some detailed data beyond the map.
-
-To generate the charts, I used [**echarts**](https://ecomfe.github.io/echarts-doc/public/en/index.html) which is an excellent data visualization tool from Baidu.
-
-Anyway, what I want to say is that you can add some other elements into the data visualization page combined with the map instead of adding too much elements into the map.
+I add some **charts** which are able to show some detailed data beyond the map. To generate the charts, I used a tool called [**Echarts**](https://ecomfe.github.io/echarts-doc/public/en/index.html), which is an excellent data visualization tool from Baidu.
 
 Let's first see how it looks,
 <iframe width="820" height="1060" src="https://brucehenry.github.io/blog-webpage/interactive-map/03/map_with_chart.html">You browser does not support iframe tag, <a href="https://brucehenry.github.io/blog-webpage/interactive-map/02/advanced_map.html" target="_blank">click here to visit</a>.</iframe>
 <!--more-->
-#### About Echarts
-Instead of making charts use D3, I choose to use echarts. Basic charts, like pie chart or line chart, should have a general template and style. Though D3 is good enough, it still costs a lot of time and effort to do that. I think in the future, visualization libraries like echarts will become more popular. In the meantime, D3 will be used for customized and advanced ones. It should be like **C++** and **Java**.     
 
-Last but not least , echarts is totally **free**.
+***
 
-#### Code
+#### About ECharts
+Though **D3** is powerful enough to make charts, it still costs a lot of time to make a good-looking one.
 
-You can find the code at this [Github repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/03).
+**ECharts** provides various nice charts with well-designed styles, so that is why I choose to use **ECharts**. I think in the future, visualization libraries like **ECharts** will become more popular for general use.
 
-##### HTML
+***
+
+#### Show me the code! 
+You can find the code at this [Github repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/03). Now let me show you how easy to make a chart with **ECharts**.
+
+##### Step 1: Create a Container in HTML
+You need to provide a container `<div>` for the charts.
 ```html
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Advanced Interactive Map</title>
-    <link rel="stylesheet" href="./map_with_chart.css"/>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
-</head>
-<body>
-
-<div id="map"></div>
-
-<div id="input">
-    <label for="city">City</label>
-    <select id="city" autocomplete="off"></select>
-
-    <table>
-        <tr>
-            <th rowspan="2">Year</th>
-            <td colspan="21">
-                <label for="year"></label>
-                <input type="range" min="2000" max="2018" step="1" value="2000" autocomplete="off" id="year"/>
-            </td>
-        </tr>
-        <tr>
-            <td>2000</td>
-            <td>2001</td>
-            <td>2002</td>
-            <td>2003</td>
-            <td>2004</td>
-            <td>2005</td>
-            <td>2006</td>
-            <td>2007</td>
-            <td>2008</td>
-            <td>2009</td>
-            <td>2010</td>
-            <td>2011</td>
-            <td>2012</td>
-            <td>2013</td>
-            <td>2014</td>
-            <td>2015</td>
-            <td>2016</td>
-            <td>2017</td>
-            <td>2018</td>
-        </tr>
-    </table>
-    <ul>
-        <li>Try selecting a city (click on the map or use dropdown list).</li>
-        <li>Try dragging the year slider.</li>
-        <li>Try zooming in and dragging the map.</li>
-    </ul>
-</div>
-
 <div id="pie"></div>
 <div id="line"></div>
-
-<script src="./echarts.min.js"></script>
-<script src="./map_with_chart.js"></script>
-</body>
-</html>
 ```
-***
-##### JavaScript
-```javascript
-var relation_data;//relation data among cities
-var location_data;//location data of cities
 
-//Get width and height of the outer <div> to set projection
-var map_div = d3.select('#map').node().getBoundingClientRect();
-var width = map_div.width, height = map_div.height;
-
-//This values means the initial scale of map, also how much you want the map to zoom in: d3.geo.scale = projection_scale * mouse_event_zoom
-var projection_scale = 500;
-
-//Projection is a property to set the center and scale of map. Also, we can use it to get position in the map from real world geo coordinates.
-var projection = d3.geo.equirectangular()
-    .center([-98, 38])//[longitude, latitude]
-    .scale(projection_scale)//Initial scale
-    .translate([width / 2, height / 2]);
-
-//Pop up a box when mouse is over a city
-var popup = d3.select('body')
-    .append('div')
-    .attr('class', 'popup')
-    .style('opacity', 0);//Invisible
-
-
-function renderMap(projection) {
-    //Remove the previous map elements
-    const mapNode = document.getElementById("map");
-    while (mapNode.firstChild) {
-        mapNode.removeChild(mapNode.firstChild);
-    }
-
-    //Render new map
-    new Datamaps({
-        element: document.getElementById('map'),
-        projection: 'mercator',
-        setProjection: function (element) {
-            const path = d3.geo.path().projection(projection);
-            return {path: path, projection: projection};
-        },
-        fills: {
-            defaultFill: '#8ebdee'
-        },
-        geographyConfig: {
-            popupOnHover: false, //disable the popup while hovering
-            highlightOnHover: false
-        }
-    });
-}
-
-//Function to draw circles(cities) on the map.
-function drawCity(location_data, projection) {
-    //Remove previous circles
-    d3.select('#circles').remove();
-
-    //Put the data into an array. The parameter of d3.(Select_Function).data() must be iterable.
-    var data = [];
-    for (var city in location_data) {
-        data.push({
-            city: city,
-            location: location_data[city]
-        });
-    }
-
-    //Append all circles into a <g> tag in order to manipulate them easily.
-    var circles = d3.select('svg')
-        .append('g')
-        .attr('id', 'circles')
-        .selectAll('circle');
-
-    //Set attributes and styles of circles based on the data
-    circles.data(data)
-        .enter()
-        .append('circle')
-        .attr('fill', '#ff919f')
-        .attr('r', 4)
-        .attr('cx', function (d) {
-            return projection(d.location)[0];
-        })
-        .attr('cy', function (d) {
-            return projection(d.location)[1];
-        })
-        .on('click', function (d) {
-            if (d3.select("#city").property("value") === d.city)
-                return;
-            d3.select('#city').property('value', d.city);
-            drawLine(relation_data, location_data, projection, 300);
-            renderPieChart(relation_data);
-            renderLineChart(relation_data);
-        })
-        .on('mouseover', function (d) {
-            d3.select(this).attr('r', 7).style('cursor', "pointer");
-            popup.style('opacity', .8)
-                .style('left', (d3.event.pageX) + 'px')
-                .style('top', (d3.event.pageY - 20) + 'px')
-                .text(d.city);
-        })
-        .on('mouseout', function () {
-            d3.select(this).attr('r', 4);
-            popup.transition()
-                .style('opacity', 0);
-        });
-}
-
-//Function to draw lines(relations) on the map.
-function drawLine(relation_data, location_data, projection, animation_length) {
-    //Remove previous circles
-    d3.select("#lines").remove();
-
-    //Get values from the input
-    var year = d3.select("#year").property("value");
-    var city = d3.select("#city").property("value");
-
-    var data = relation_data[city][year];
-
-    var colorScale = d3.scale.category20();
-
-    //Append all lines into a <g> tag in order to manipulate them easily.
-    var lines = d3.select('svg')
-        .append('g')
-        .attr('id', 'lines')
-        .selectAll('line');
-
-    //Set attributes and styles of lines based on the data
-    lines.data(data)
-        .enter()
-        .append('line')
-        .attr('x1', projection(location_data[city])[0])
-        .attr('y1', projection(location_data[city])[1])
-        .attr('x2', projection(location_data[city])[0])
-        .attr('y2', projection(location_data[city])[1])
-        .style('stroke-width', '3px')
-        .style('stroke', function () {
-            return colorScale(Math.random());
-        })
-        .style('stroke-linecap', 'round')
-        .transition()
-        .duration(animation_length)
-        .attr('x2', function (d) {
-            return projection(location_data[d])[0];
-        })
-        .attr('y2', function (d) {
-            return projection(location_data[d])[1];
-        })
-}
-
-function renderPieChart(relation_data) {
-    //Get values from the input
-    var year = d3.select("#year").property("value");
-    var city = d3.select("#city").property("value");
-
-    var legend_array = [];
-    var data = [];
-
-    var data_array = relation_data[city][year];
-    for (var i in data_array) {
-        var city_name = data_array[i];
-        legend_array.push(city_name);
-        data.push({
-            name: city_name,
-            value: 1
-        });
-    }
-    var pieChart = echarts.init(document.getElementById('pie'), null, {renderer: 'svg'});
-    var pieOption = {
-        title: {
-            text: city + ' in ' + year,
-            top: '3%',
-            left: '50%'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{b} : {c} ({d}%)"
-        },
-        legend: {
-            orient: 'vertical',
-            top: '5%',
-            left: 'left',
-            data: legend_array
-        },
-        series: [{
-            type: 'pie',
-            radius: '60%',
-            center: ['65%', '60%'],
-            animation: false,
-            data: data,
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            }
-        }]
-    };
-    pieChart.setOption(pieOption);
-}
-
-function renderLineChart(relation_data) {
-    var city = d3.select("#city").property("value");
-    var city_data = relation_data[city];
-
-    var data = [];
-    for (var i = 2000; i <= 2018; i++) {
-        data.push(city_data[i.toString()].length)
-    }
-
-    var lineChart = echarts.init(document.getElementById('line'), null, {renderer: 'svg'});
-    var lineOption = {
-        title: {
-            text: city + ' from 2000 to 2018',
-            top: '4%'
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            axisLabel: {
-                margin: 15
-            },
-            data: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [{
-            type: 'line',
-            data: data
-        }]
-    };
-    lineChart.setOption(lineOption);
-}
-
-
-//Asynchronously load the data files
-d3.json("./city_location.json", function (city_location) {
-    d3.json("./data.json", function (data) {
-        location_data = city_location;
-        relation_data = data;
-
-        //Append cities into the city selection list
-        var city_selector = d3.select('#city');
-        for (var city in location_data) {
-            city_selector.append('option').text(city);
-        }
-        d3.select('#city').property('value', 'Los Angeles');
-        renderMap(projection);//Render the map after loading the data
-        drawCity(location_data, projection);//Draw cities after loading the data
-        drawLine(relation_data, location_data, projection, 0);
-        renderPieChart(relation_data);
-        renderLineChart(relation_data);
-    });
-});
-
-//Handle zoom (including drag) event
-d3.select('#map').call(
-    d3.behavior.zoom()
-        .scaleExtent([0.5, 5])
-        .on('zoom', function () {
-            var scale = d3.event.scale;
-            //Update projection (projection will be changed after zooming or dragging)
-            projection = d3.geo.equirectangular()
-                .center([-98, 38])
-                .scale(projection_scale * scale)
-                .translate([width / 2 * scale + d3.event.translate[0], height / 2 * scale + d3.event.translate[1]]);
-
-            renderMap(projection);
-            drawCity(location_data, projection);
-            drawLine(relation_data, location_data, projection, 0);
-        })
-);
-
-//Handle city selector change
-d3.select("#city").on('change', function () {
-    drawLine(relation_data, location_data, projection, 300);
-    renderPieChart(relation_data);
-    renderLineChart(relation_data);
-});
-
-//Handle year input change
-d3.select("#year").on('input', function () {
-    renderMap(projection);
-    drawCity(location_data, projection);
-    drawLine(relation_data, location_data, projection, 0);
-    renderPieChart(relation_data);
-});
-```
-***
-##### CSS
+**Also**, you need to set the size in **CSS**. Of course you can set it with JS code if you want to make a chart with responsive size.
 ```css
-.popup {
-    position: absolute;
-    text-align: center;
-    width: 80px;
-    height: 15px;
-    padding: 2px;
-    font: 12px sans-serif;
-    background: #ebebeb;
-    border: 0;
-    border-radius: 8px;
-    pointer-events: none;
-}
-
-#map {
-    width: 800px;
-    height: 250px;
-    position: relative;
-    margin: auto;
-}
-
-#input {
-    width: 800px;
-    position: relative;
-    margin: auto;
-}
-
-label {
-    color: #37ca98;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-table {
-    width: 100%;
-}
-
-th {
-    color: #e66d18;
-    font-size: 20px;
-    text-align: left;
-}
-
-tr {
-    color: #0026bf;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-}
-
-#year {
-    -webkit-appearance: none;
-    width: 98%;
-    height: 15px;
-    border-radius: 5px;
-    background: #99ccff;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-
-#year::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #0462ff;
-    cursor: pointer;
-}
-
-#year::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #0462ff;
-    cursor: pointer;
-}
-
-#year::-moz-range-track {
-    background: none;
-}
-
-ul {
-    color: #00242b;
-    font-weight: bold;
-}
-
 #pie {
     width: 700px;
     height: 300px;
     margin: auto;
-
 }
 
 #line {
@@ -495,3 +50,117 @@ ul {
     margin: auto;
 }
 ```
+##### Step 2: Use ECharts
+After including the ECharts JS file (download [**here**](https://ecomfe.github.io/echarts-doc/public/en/download.html)), all you need to do is calling `init()` and `setOption()`.
+
+Here is the **basic** code for a **pie chart**,
+```javascript
+echarts
+    .init(document.getElementById('pie'))
+    .setOption(
+        {
+            series: [{
+                    type: 'pie',
+                    data: data
+                }]
+        });
+```
+
+Of course you can add some more **options** like,
+```javascript
+echarts
+    .init(document.getElementById('pie'))
+    .setOption(
+        {
+            title: {
+                text: city + ' in ' + year,
+                top: '3%',
+                left: '50%'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                top: '5%',
+                left: 'left',
+                data: legend_array
+            },
+            series: [{
+                type: 'pie',
+                radius: '60%',
+                center: ['65%', '60%'],
+                animation: false,
+                data: data,
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }]
+        });
+```
+
+And for the **line chart** of this visualization,
+```javascript
+echarts
+    .init(document.getElementById('pie'))
+    .setOption(
+        {
+            title: {
+                text: city + ' from 2000 to 2018',
+                top: '4%'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel: {
+                    margin: 15
+                },
+                data: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                type: 'line',
+                data: data
+            }]
+        });
+```
+
+##### Step 3: Update the Chart
+Finally, you need to add a controller to update the chart after input.
+
+For **ECharts**, all you need to do is to call the above chart functions again. Echarts will update the data **automatically**. 
+
+Here are some example codes,
+```javascript
+function render_chart() {
+    /*
+      echarts
+        .init()
+        .setOption();
+    */
+}
+
+d3.select("#input").on('change', function () {
+    render_chart();
+});
+```
+***
+**The End**
+
+***
