@@ -6,7 +6,7 @@ categories:
 tags:
 - JavaScript
 - D3
-description: Introduction of how to draw lines in a map using D3.js
+description: Introduction to how to draw lines in a map using D3.js
 ---
 
 #### Preview: Lines in the Map

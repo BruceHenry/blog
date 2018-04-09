@@ -101,29 +101,26 @@
 
   
 
-<meta name="description" content="Steps of installing Java and setting environment variables on Windows.">
-<meta name="keywords" content="Java">
+<meta name="description" content="What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?">
+<meta name="keywords" content="Java,JVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Install Java on Windows">
-<meta property="og:url" content="http://brucehenry.github.io/blog/public/2017/11/19/JavaInstallation/index.html">
+<meta property="og:title" content="Introduction to Java Garbage Collection">
+<meta property="og:url" content="http://brucehenry.github.io/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/index.html">
 <meta property="og:site_name" content="Han&#39;s Blog">
-<meta property="og:description" content="Steps of installing Java and setting environment variables on Windows.">
-<meta property="og:image" content="http://brucehenry.github.io/blog/public/2017/11/19/JavaInstallation/java-oracle.png">
-<meta property="og:image" content="http://brucehenry.github.io/blog/public/2017/11/19/JavaInstallation/system-setting.png">
-<meta property="og:image" content="http://brucehenry.github.io/blog/public/2017/11/19/JavaInstallation/advanced.png">
-<meta property="og:image" content="http://brucehenry.github.io/blog/public/2017/11/19/JavaInstallation/version.png">
-<meta property="og:updated_time" content="2018-04-08T08:14:51.502Z">
+<meta property="og:description" content="What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?">
+<meta property="og:image" content="http://brucehenry.github.io/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/garbage.png">
+<meta property="og:updated_time" content="2018-04-09T08:27:37.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Install Java on Windows">
-<meta name="twitter:description" content="Steps of installing Java and setting environment variables on Windows.">
-<meta name="twitter:image" content="http://brucehenry.github.io/blog/public/2017/11/19/JavaInstallation/java-oracle.png">
+<meta name="twitter:title" content="Introduction to Java Garbage Collection">
+<meta name="twitter:description" content="What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?">
+<meta name="twitter:image" content="http://brucehenry.github.io/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/garbage.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://brucehenry.github.io/blog/public/2017/11/19/JavaInstallation/"/>
+  <link rel="canonical" href="http://brucehenry.github.io/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/"/>
 
 
 
@@ -133,7 +130,7 @@
   };
 </script>
 
-  <title>Install Java on Windows | Han's Blog</title>
+  <title>Introduction to Java Garbage Collection | Han's Blog</title>
   
 
 
@@ -331,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://brucehenry.github.io/blog/public/blog/public/2017/11/19/JavaInstallation/">
+    <link itemprop="mainEntityOfPage" href="http://brucehenry.github.io/blog/public/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Han Bao">
@@ -348,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Install Java on Windows</h1>
+          <h1 class="post-title" itemprop="name headline">Introduction to Java Garbage Collection</h1>
         
 
         <div class="post-meta">
@@ -360,7 +357,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-19T02:45:45-05:00">2017-11-19</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T19:38:22-05:00">2018-02-14</time>
             
 
             
@@ -381,7 +378,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/public/categories/Basic-Java/" itemprop="url" rel="index"><span itemprop="name">Basic Java</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/public/categories/Advanced-Java/" itemprop="url" rel="index"><span itemprop="name">Advanced Java</span></a></span>
 
                 
                 
@@ -401,7 +398,7 @@
           
 
           
-              <div class="post-description">Steps of installing Java and setting environment variables on Windows.</div>
+              <div class="post-description">What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?</div>
           
 
         </div>
@@ -417,46 +414,34 @@
       
 
       
-        <h1 id="What-is-Java-Why-Java"><a href="#What-is-Java-Why-Java" class="headerlink" title="What is Java? Why Java?"></a>What is Java? Why Java?</h1><p><strong>Java</strong> is a object-oriented programming language owned by Oracle now.</p>
-<p>The original designer of Java loves the coffee from Java island in Indonesia, that is why the logo of Java is a cup of coffee.</p>
-<img src="/blog/public/2017/11/19/JavaInstallation/java-oracle.png" title="[Java and Oracle]">
-<p><strong>Comparing with other programming languages</strong>, one unique thing about Java is that Java programs run in the <strong>JVM</strong>(Java Virtual Machine). And thanks to that, Java programs are called <strong>WORA</strong> (Write Once Run Everywhere), which means you can run your Java code on any platform with JVM.</p>
-<p>However, in most cases, the large usage of Java today is not because its cross-platform feature but the active community and mature solutions of Java.</p>
+        <h1 id="What-is-Garbage"><a href="#What-is-Garbage" class="headerlink" title="What is Garbage?"></a>What is Garbage?</h1><img src="/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/garbage.png" title="[Garbage]">
+<p>Every time you create a new object, you consume some memory to store it. And when you no longer use it, it becomes garbage.</p>
+<p>Unless you have infinite memory space, you need to collect memory to free the occupied memory space.</p>
 <hr>
-<h1 id="Download-and-Install-JDK"><a href="#Download-and-Install-JDK" class="headerlink" title="Download and Install JDK."></a>Download and Install JDK.</h1><p>To run Java programs, you need to install <strong>JRE</strong>(Java Runtime Environment), which contains JVM. And to develop Java programs, you need to install <strong>JDK</strong>(Java Development Kit). Well, JRE is contained in the JDK, so all you need to do is to download and install JDK.</p>
-<p>There are many ways to download JDK, but I recommend you to download it directly from <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle</a>.</p>
-<p>After downloading, install it just as you install other software. You’d better remember where you install it, because you need to set the environment variable later.</p>
+<h1 id="Why-do-we-discuss-Garbage-Collection-in-Java"><a href="#Why-do-we-discuss-Garbage-Collection-in-Java" class="headerlink" title="Why do we discuss Garbage Collection in Java?"></a>Why do we discuss Garbage Collection in Java?</h1><p>In <strong>C/C++</strong>, you need to use <code>free()</code> or <code>delete</code> to release the memory for garbage, or it will cause <strong>memory leak</strong>.</p>
+<p>But in <strong>Java</strong>, you do not need to worry about that. JVM will automatically collect garbage, though <strong>it does not mean that you can create objects without limit</strong>. You can call <code>System.gc()</code> to explicitly tell JVM to do the GC, but JVM may not guarantee to do that.</p>
+<p>When the memory is almost used up, JVM will pause the program for a while to do the GC. And here are the choices, you want the GC to be long and rare, or short and frequent. By learning the strategy of Java GC, you can optimize your Java applications by setting perfect parameters.</p>
 <hr>
-<h1 id="Set-the-Environment-Variables"><a href="#Set-the-Environment-Variables" class="headerlink" title="Set the Environment Variables"></a>Set the Environment Variables</h1><p>This step is very <strong>important</strong>, please be patient.</p>
-<ol>
-<li>Open ‘System’</li>
-<li>Click ‘Advanced system settings’<img src="/blog/public/2017/11/19/JavaInstallation/system-setting.png" title="[Advanced system settings]"></li>
-<li><p>Find ‘Environment Variables’ in the ‘Advanced’ tab</p>
-<img src="/blog/public/2017/11/19/JavaInstallation/advanced.png" title="[Advanced]">
-</li>
-<li><p>Add the following Environment Variables</p>
-</li>
-</ol>
+<h1 id="How-to-identify-garbage"><a href="#How-to-identify-garbage" class="headerlink" title="How to identify garbage?"></a>How to identify garbage?</h1><p>In general, there are two ways to identify garbage.</p>
 <ul>
-<li>JAVA_HOME：C:\Program Files\Java\jdk1.8.0_102</li>
+<li>Reference Counting</li>
 </ul>
-<p><strong>Note:</strong>  Input the path where you installed JDK, the above example is the default path on Windows(x64).</p>
+<p>The easiest way is to count the reference of all the objects, then objects without being referenced are garbage. But there is a bug here, what if two garbage objects reference to each other.</p>
 <ul>
-<li>JDK_HOME：%JAVA_HOME%</li>
-<li>JRE_HOME：%JAVA_HOME%\jre</li>
-<li>Path： <strong>Append</strong> <code>%JAVA_HOME%\bin</code></li>
+<li>Reachability Analysis</li>
 </ul>
-<p><strong>Note:</strong>  You may need to append  <code>;</code> first. It depends on whether this was a <code>;</code> at the end of your original path. So you may append <code>;%JAVA_HOME%\bin</code>. Do <strong>NOT</strong> change the original content of “Path”.</p>
-<ul>
-<li>CLASSPATH：.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</li>
-</ul>
+<p>We try to reach all the referenced objects from some root objects, then the ones without reaching are the garbage.</p>
+<p>The root objects are called <strong>GC Roots</strong>. The GC Roots normally consists of local variables, static variables and active threads.</p>
 <hr>
-<h1 id="Examine-the-Installation"><a href="#Examine-the-Installation" class="headerlink" title="Examine the Installation"></a>Examine the Installation</h1><p>Open the Terminal (On Windows, press ‘Win’ + ‘R’, then input <code>cmd</code> and press ‘Enter’), input:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-<p>You should see the version information of Java, which means you have successfully installed Java.<br><img src="/blog/public/2017/11/19/JavaInstallation/version.png" title="[Java Version]"><br>Welcome to the world of Java.</p>
-<hr>
-<p><strong>The End</strong></p>
-<hr>
+<h1 id="How-to-collect-garbage"><a href="#How-to-collect-garbage" class="headerlink" title="How to collect garbage?"></a>How to collect garbage?</h1><p>After identifying the garbage, we need to collect it. There is no one general way to do that because there are different memory area with different features. JVM actually uses different ways for different memory area.</p>
+<p>Here are some basic strategies being mostly used,</p>
+<h2 id="Mark-Delete-and-Compact"><a href="#Mark-Delete-and-Compact" class="headerlink" title="Mark, Delete and Compact"></a>Mark, Delete and Compact</h2><p>First mark the garbage objects, then delete them. But now the there are empty holes in the memory with probably different sizes, which is very difficult to use later.</p>
+<p>So the next step is to compact the memory by moving the remaining object to one side of the memory.</p>
+<h2 id="Mark-and-Copy"><a href="#Mark-and-Copy" class="headerlink" title="Mark and Copy"></a>Mark and Copy</h2><p>First mark the garbage objects, then copy the non-garbage objects to a new area of memory.</p>
+<p>However, this strategy needs twice memory space as it actually needs.</p>
+<h2 id="Generational-Garbage-Collection"><a href="#Generational-Garbage-Collection" class="headerlink" title="Generational Garbage Collection"></a>Generational Garbage Collection</h2><p>Split the memory into two parts, <strong>young generation</strong> and <strong>old generation</strong>.</p>
+<p><strong>Young generation</strong> area stores objects that are newly created. Every time a object survives from GC, add one to the age of this object. When the age reaches a certain level, move this object to the <strong>old generation</strong> area.</p>
+<p>Eventually, new and less important objects are in the <strong>young generation</strong> area, while old but important objects are in the <strong>old generation</strong> area.</p>
 
       
     </div>
@@ -479,6 +464,8 @@
           
             <a href="/blog/public/tags/Java/" rel="tag"># Java</a>
           
+            <a href="/blog/public/tags/JVM/" rel="tag"># JVM</a>
+          
         </div>
       
 
@@ -490,15 +477,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/blog/public/2018/02/07/JVM-Memory-Structure/" rel="next" title="JVM Memory Structure">
+                <i class="fa fa-chevron-left"></i> JVM Memory Structure
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/public/2017/11/19/ArrayToList/" rel="prev" title="Array and List in Java">
-                Array and List in Java <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -662,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Java-Why-Java"><span class="nav-number">1.</span> <span class="nav-text">What is Java? Why Java?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Download-and-Install-JDK"><span class="nav-number">2.</span> <span class="nav-text">Download and Install JDK.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-the-Environment-Variables"><span class="nav-number">3.</span> <span class="nav-text">Set the Environment Variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examine-the-Installation"><span class="nav-number">4.</span> <span class="nav-text">Examine the Installation</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Garbage"><span class="nav-number">1.</span> <span class="nav-text">What is Garbage?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-do-we-discuss-Garbage-Collection-in-Java"><span class="nav-number">2.</span> <span class="nav-text">Why do we discuss Garbage Collection in Java?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-identify-garbage"><span class="nav-number">3.</span> <span class="nav-text">How to identify garbage?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-collect-garbage"><span class="nav-number">4.</span> <span class="nav-text">How to collect garbage?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mark-Delete-and-Compact"><span class="nav-number">4.1.</span> <span class="nav-text">Mark, Delete and Compact</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mark-and-Copy"><span class="nav-number">4.2.</span> <span class="nav-text">Mark and Copy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generational-Garbage-Collection"><span class="nav-number">4.3.</span> <span class="nav-text">Generational Garbage Collection</span></a></li></ol></li></ol></div>
             
 
           </div>

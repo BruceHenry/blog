@@ -100,22 +100,27 @@
 
 
   
-  <meta name="keywords" content="Han Bao, D3, Java, JavaScript, Data Visualization" />
 
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Han&#39;s Blog">
-<meta property="og:url" content="http://brucehenry.github.io/blog/public/archives/2018/01/index.html">
+<meta name="description" content="Introduction to Java Virtual Machine Memory Structure">
+<meta name="keywords" content="Java,JVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM Memory Structure">
+<meta property="og:url" content="http://brucehenry.github.io/blog/public/2018/02/07/JVM-Memory-Structure/index.html">
 <meta property="og:site_name" content="Han&#39;s Blog">
+<meta property="og:description" content="Introduction to Java Virtual Machine Memory Structure">
+<meta property="og:image" content="http://brucehenry.github.io/blog/public/2018/02/07/JVM-Memory-Structure/JVM-Memory.png">
+<meta property="og:updated_time" content="2018-04-09T04:37:09.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Han&#39;s Blog">
+<meta name="twitter:title" content="JVM Memory Structure">
+<meta name="twitter:description" content="Introduction to Java Virtual Machine Memory Structure">
+<meta name="twitter:image" content="http://brucehenry.github.io/blog/public/2018/02/07/JVM-Memory-Structure/JVM-Memory.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://brucehenry.github.io/blog/public/archives/2018/01/"/>
+  <link rel="canonical" href="http://brucehenry.github.io/blog/public/2018/02/07/JVM-Memory-Structure/"/>
 
 
 
@@ -125,7 +130,7 @@
   };
 </script>
 
-  <title>Archive | Han's Blog</title>
+  <title>JVM Memory Structure | Han's Blog</title>
   
 
 
@@ -172,7 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -307,117 +312,203 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 7 posts in total. Keep on posting.
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://brucehenry.github.io/blog/public/blog/public/2018/02/07/JVM-Memory-Structure/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Bao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/public/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Han's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/blog/public/2018/01/31/InteractiveMap_02/" itemprop="url">
-              
-                <span itemprop="name">Make an Interactive Map 02 - Lines in the Map</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">JVM Memory Structure</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-31T02:52:54-05:00"
-              content="2018-01-31" >
-          01-31
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-07T20:03:50-05:00">2018-02-07</time>
+            
 
-    </header>
-  </article>
+            
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/public/categories/Advanced-Java/" itemprop="url" rel="index"><span itemprop="name">Advanced Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">Introduction to Java Virtual Machine Memory Structure</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/public/2018/01/19/InteractiveMap_01/" itemprop="url">
-              
-                <span itemprop="name">Make an Interactive Map 01 - Colorful World Map</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-19T02:52:54-05:00"
-              content="2018-01-19" >
-          01-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h1 id="What-is-JVM"><a href="#What-is-JVM" class="headerlink" title="What is JVM?"></a>What is JVM?</h1><p><strong>JVM</strong>(Java Virtual Machine) is the program that execute your Java applications.</p>
+<p>As part of <strong>JRE</strong>(Java Run Environment), JVM is the one that actually calls the <code>main()</code> method in your Java code. It is also the JVM that <strong>loads</strong>, <strong>links</strong> and <strong>initialize</strong> the <code>.class</code> files which are compiled from <code>.java</code> by the compiler(javac).</p>
+<hr>
+<h1 id="JVM-Memory-Components"><a href="#JVM-Memory-Components" class="headerlink" title="JVM Memory Components"></a>JVM Memory Components</h1><p>There are <strong>five</strong> components in JVM memory: <strong>Stack Area</strong>, <strong>PC Registers</strong>, <strong>Native Method Area</strong>, <strong>Method Area</strong> and <strong>Heap</strong>.</p>
+<p><strong>Heap</strong> and <strong>Method Area</strong> are shared, while <strong>Stack Area</strong>, <strong>PC Registers</strong> and <strong>Native Method Area</strong> unshared.</p>
+<p>The following diagram shows whether each of them is shared or unshared.<br><img src="/blog/public/2018/02/07/JVM-Memory-Structure/JVM-Memory.png" title="[JVM Memory]"></p>
+<h2 id="Stack-Area"><a href="#Stack-Area" class="headerlink" title="Stack Area"></a>Stack Area</h2><p>Every time a new <strong>thread</strong> is created, JVM creates a separate <strong>Stack Area</strong> for it. The <strong>Stack Area</strong> consists of <strong>Local Variable Array</strong>, <strong>Operand Stack</strong> and <strong>Frame Data</strong>.</p>
+<ul>
+<li><strong>Local Variable Array</strong>: Storing <strong>local variables</strong> of the method.</li>
+<li><strong>Operand Stack</strong>: Storing the intermediate calculation results.</li>
+<li><strong>Frame Data</strong>: Containing constant pool and <strong>Exception</strong> table.</li>
+</ul>
+<h2 id="PC-Registers"><a href="#PC-Registers" class="headerlink" title="PC Registers"></a>PC Registers</h2><p>Each thread has separate <strong>PC Registers</strong> to record the current executing <strong>instruction</strong>.</p>
+<h2 id="Native-Method-Area"><a href="#Native-Method-Area" class="headerlink" title="Native Method Area"></a>Native Method Area</h2><p>Each thread has separate <strong>Native Method Area</strong> to store native method information.</p>
+<h2 id="Method-Area"><a href="#Method-Area" class="headerlink" title="Method Area"></a>Method Area</h2><p>All the <strong>class</strong> level data including static variables are stored here.</p>
+<h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><p>All the <strong>objects</strong> are stored here, which means you will use the <strong>Heap</strong> every time you use the key word <code>new</code>. Besides, <strong>Garbage Collection</strong> mainly happens in the <strong>Heap</strong>.</p>
+<hr>
+<p><strong>The End</strong></p>
+<hr>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/public/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/blog/public/tags/JVM/" rel="tag"># JVM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/public/2018/02/05/InteractiveMap_03/" rel="next" title="Make an Interactive Map 03 - Interaction with Charts">
+                <i class="fa fa-chevron-left"></i> Make an Interactive Map 03 - Interaction with Charts
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/" rel="prev" title="Introduction to Java Garbage Collection">
+                Introduction to Java Garbage Collection <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -438,8 +529,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -534,6 +634,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-JVM"><span class="nav-number">1.</span> <span class="nav-text">What is JVM?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM-Memory-Components"><span class="nav-number">2.</span> <span class="nav-text">JVM Memory Components</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack-Area"><span class="nav-number">2.1.</span> <span class="nav-text">Stack Area</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PC-Registers"><span class="nav-number">2.2.</span> <span class="nav-text">PC Registers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Native-Method-Area"><span class="nav-number">2.3.</span> <span class="nav-text">Native Method Area</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-Area"><span class="nav-number">2.4.</span> <span class="nav-text">Method Area</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heap"><span class="nav-number">2.5.</span> <span class="nav-text">Heap</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -655,6 +771,10 @@
   
 
   
+  <script type="text/javascript" src="/blog/public/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/blog/public/js/src/post-details.js?v=6.0.6"></script>
+
+
 
   
 

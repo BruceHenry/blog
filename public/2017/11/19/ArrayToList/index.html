@@ -101,17 +101,17 @@
 
   
 
-<meta name="description" content="Introduction of how to convert Array and List to each other in Java.">
+<meta name="description" content="Introduction to how to convert Array and List to each other in Java.">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Array and List in Java">
 <meta property="og:url" content="http://brucehenry.github.io/blog/public/2017/11/19/ArrayToList/index.html">
 <meta property="og:site_name" content="Han&#39;s Blog">
-<meta property="og:description" content="Introduction of how to convert Array and List to each other in Java.">
-<meta property="og:updated_time" content="2018-03-16T15:41:08.873Z">
+<meta property="og:description" content="Introduction to how to convert Array and List to each other in Java.">
+<meta property="og:updated_time" content="2018-04-08T23:39:53.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array and List in Java">
-<meta name="twitter:description" content="Introduction of how to convert Array and List to each other in Java.">
+<meta name="twitter:description" content="Introduction to how to convert Array and List to each other in Java.">
 
 
 
@@ -376,7 +376,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/public/categories/Java-Basics/" itemprop="url" rel="index"><span itemprop="name">Java Basics</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/public/categories/Basic-Java/" itemprop="url" rel="index"><span itemprop="name">Basic Java</span></a></span>
 
                 
                 
@@ -396,7 +396,7 @@
           
 
           
-              <div class="post-description">Introduction of how to convert Array and List to each other in Java.</div>
+              <div class="post-description">Introduction to how to convert Array and List to each other in Java.</div>
           
 
         </div>
@@ -412,18 +412,23 @@
       
 
       
-        <p>In Java, <code>Array</code> and <code>List</code> have a lot in common. Now I am going to introduce how to convert them to each other.</p>
-<h4 id="1-How-to-convert-List-to-Array"><a href="#1-How-to-convert-List-to-Array" class="headerlink" title="1. How to convert List to Array?"></a>1. How to convert <code>List</code> to <code>Array</code>?</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">T [] array = list.toArray(<span class="keyword">new</span> T[list.size()]);</span><br></pre></td></tr></table></figure>
+        <p>In <strong>Java</strong>, <code>Array</code> and <code>List</code> have a lot in common. Now I am going to introduce how to convert them to each other.</p>
 <hr>
-<h4 id="2-How-to-convert-Array-to-List-in-Java"><a href="#2-How-to-convert-Array-to-List-in-Java" class="headerlink" title="2. How to convert Array to List in Java?"></a>2. How to convert <code>Array</code> to <code>List</code> in Java?</h4><p>There are two ways to convert <code>Array</code> to <code>List</code>.</p>
+<h1 id="How-to-convert-List-to-Array"><a href="#How-to-convert-List-to-Array" class="headerlink" title="How to convert List to Array?"></a>How to convert <code>List</code> to <code>Array</code>?</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">T [] array = list.toArray(<span class="keyword">new</span> T[list.size()]);</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="How-to-convert-Array-to-List"><a href="#How-to-convert-Array-to-List" class="headerlink" title="How to convert Array to List?"></a>How to convert <code>Array</code> to <code>List</code>?</h1><p>There are two ways to convert <code>Array</code> to <code>List</code>.</p>
 <ul>
-<li>Flexible Length Way <strong>(Recommendation)</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList(Arrays.asList(array));</span><br></pre></td></tr></table></figure>
+<li><strong>Flexible Length Way (Recommended)</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList(Arrays.asList(array));</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>The above is recommended because it returns an <code>ArrayList</code> which has flexible length (you can add extra elements).</p>
 <ul>
-<li>Inflexible Way<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = Arrays.asList(array);</span><br></pre></td></tr></table></figure></li>
+<li><strong>Easy but Inflexible Way</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = Arrays.asList(array);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<hr>
+<p><strong>The End</strong></p>
+<hr>
 
       
     </div>
@@ -457,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/public/2017/11/19/JavaInstallation/" rel="next" title="How to install Java on Windows?">
-                <i class="fa fa-chevron-left"></i> How to install Java on Windows?
+              <a href="/blog/public/2017/11/19/JavaInstallation/" rel="next" title="Install Java on Windows">
+                <i class="fa fa-chevron-left"></i> Install Java on Windows
               </a>
             
           </div>
@@ -543,7 +548,7 @@
                 
                   <a href="/blog/public/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -560,7 +565,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -579,7 +586,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -629,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-How-to-convert-List-to-Array"><span class="nav-number">1.</span> <span class="nav-text">1. How to convert List to Array?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-How-to-convert-Array-to-List-in-Java"><span class="nav-number">2.</span> <span class="nav-text">2. How to convert Array to List in Java?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-convert-List-to-Array"><span class="nav-number">1.</span> <span class="nav-text">How to convert List to Array?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-convert-Array-to-List"><span class="nav-number">2.</span> <span class="nav-text">How to convert Array to List?</span></a></li></ol></div>
             
 
           </div>
