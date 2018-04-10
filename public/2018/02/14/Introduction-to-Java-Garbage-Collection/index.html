@@ -109,7 +109,11 @@
 <meta property="og:site_name" content="Han&#39;s Blog">
 <meta property="og:description" content="What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?">
 <meta property="og:image" content="http://brucehenry.github.io/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/garbage.png">
-<meta property="og:updated_time" content="2018-04-09T08:27:37.502Z">
+<meta property="og:image" content="http://brucehenry.github.io/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/reference_counting.png">
+<meta property="og:image" content="http://brucehenry.github.io/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/reachability.png">
+<meta property="og:image" content="http://brucehenry.github.io/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/CDC.png">
+<meta property="og:image" content="http://brucehenry.github.io/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/Copy.png">
+<meta property="og:updated_time" content="2018-04-10T01:07:39.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Java Garbage Collection">
 <meta name="twitter:description" content="What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?">
@@ -424,24 +428,31 @@
 <hr>
 <h1 id="How-to-identify-garbage"><a href="#How-to-identify-garbage" class="headerlink" title="How to identify garbage?"></a>How to identify garbage?</h1><p>In general, there are two ways to identify garbage.</p>
 <ul>
-<li>Reference Counting</li>
+<li><strong>Reference Counting</strong><img src="/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/reference_counting.png" title="[Reference Counting]">
+</li>
 </ul>
 <p>The easiest way is to count the reference of all the objects, then objects without being referenced are garbage. But there is a bug here, what if two garbage objects reference to each other.</p>
 <ul>
-<li>Reachability Analysis</li>
+<li><strong>Reachability Analysis</strong><img src="/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/reachability.png" title="[Reachability]">
+</li>
 </ul>
 <p>We try to reach all the referenced objects from some root objects, then the ones without reaching are the garbage.</p>
 <p>The root objects are called <strong>GC Roots</strong>. The GC Roots normally consists of local variables, static variables and active threads.</p>
 <hr>
 <h1 id="How-to-collect-garbage"><a href="#How-to-collect-garbage" class="headerlink" title="How to collect garbage?"></a>How to collect garbage?</h1><p>After identifying the garbage, we need to collect it. There is no one general way to do that because there are different memory area with different features. JVM actually uses different ways for different memory area.</p>
 <p>Here are some basic strategies being mostly used,</p>
-<h2 id="Mark-Delete-and-Compact"><a href="#Mark-Delete-and-Compact" class="headerlink" title="Mark, Delete and Compact"></a>Mark, Delete and Compact</h2><p>First mark the garbage objects, then delete them. But now the there are empty holes in the memory with probably different sizes, which is very difficult to use later.</p>
+<h2 id="Mark-Delete-and-Compact"><a href="#Mark-Delete-and-Compact" class="headerlink" title="Mark, Delete and Compact"></a>Mark, Delete and Compact</h2><img src="/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/CDC.png" title="[Mark, Delete and Compact]">
+<p>First mark the garbage objects, then delete them. But now the there are empty holes in the memory with probably different sizes, which is very difficult to use later.</p>
 <p>So the next step is to compact the memory by moving the remaining object to one side of the memory.</p>
-<h2 id="Mark-and-Copy"><a href="#Mark-and-Copy" class="headerlink" title="Mark and Copy"></a>Mark and Copy</h2><p>First mark the garbage objects, then copy the non-garbage objects to a new area of memory.</p>
-<p>However, this strategy needs twice memory space as it actually needs.</p>
+<h2 id="Mark-and-Copy"><a href="#Mark-and-Copy" class="headerlink" title="Mark and Copy"></a>Mark and Copy</h2><img src="/blog/public/2018/02/14/Introduction-to-Java-Garbage-Collection/Copy.png" title="[Copy GC]">
+<p>First mark the garbage objects, then copy the non-garbage objects to a new area of memory.</p>
+<p>However, this strategy needs <strong>twice</strong> memory space as it actually needs.</p>
 <h2 id="Generational-Garbage-Collection"><a href="#Generational-Garbage-Collection" class="headerlink" title="Generational Garbage Collection"></a>Generational Garbage Collection</h2><p>Split the memory into two parts, <strong>young generation</strong> and <strong>old generation</strong>.</p>
 <p><strong>Young generation</strong> area stores objects that are newly created. Every time a object survives from GC, add one to the age of this object. When the age reaches a certain level, move this object to the <strong>old generation</strong> area.</p>
-<p>Eventually, new and less important objects are in the <strong>young generation</strong> area, while old but important objects are in the <strong>old generation</strong> area.</p>
+<p>Eventually, new and less important objects are in the <strong>young generation</strong> area, while old but important objects are in the <strong>old generation</strong> area. This is very important and we will discuss more about it later.</p>
+<hr>
+<p><strong>The End</strong></p>
+<hr>
 
       
     </div>

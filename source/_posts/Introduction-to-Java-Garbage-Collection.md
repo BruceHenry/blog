@@ -32,11 +32,13 @@ When the memory is almost used up, JVM will pause the program for a while to do 
 
 In general, there are two ways to identify garbage.
 
-- Reference Counting
+- **Reference Counting**
+{% asset_img reference_counting.png [Reference Counting] %}
 
 The easiest way is to count the reference of all the objects, then objects without being referenced are garbage. But there is a bug here, what if two garbage objects reference to each other.
 
-- Reachability Analysis
+- **Reachability Analysis**
+{% asset_img reachability.png [Reachability] %}
 
 We try to reach all the referenced objects from some root objects, then the ones without reaching are the garbage.
 
@@ -51,16 +53,18 @@ After identifying the garbage, we need to collect it. There is no one general wa
 Here are some basic strategies being mostly used,
 
 ## Mark, Delete and Compact
+{% asset_img CDC.png [Mark, Delete and Compact] %}
 
 First mark the garbage objects, then delete them. But now the there are empty holes in the memory with probably different sizes, which is very difficult to use later.
 
 So the next step is to compact the memory by moving the remaining object to one side of the memory.
 
 ##  Mark and Copy
+{% asset_img Copy.png [Copy GC] %}
 
 First mark the garbage objects, then copy the non-garbage objects to a new area of memory.
 
-However, this strategy needs twice memory space as it actually needs.
+However, this strategy needs **twice** memory space as it actually needs.
 
 ##  Generational Garbage Collection
 
@@ -68,4 +72,9 @@ Split the memory into two parts, **young generation** and **old generation**.
 
 **Young generation** area stores objects that are newly created. Every time a object survives from GC, add one to the age of this object. When the age reaches a certain level, move this object to the **old generation** area.
 
-Eventually, new and less important objects are in the **young generation** area, while old but important objects are in the **old generation** area.
+Eventually, new and less important objects are in the **young generation** area, while old but important objects are in the **old generation** area. This is very important and we will discuss more about it later.
+***
+
+**The End**
+
+***
