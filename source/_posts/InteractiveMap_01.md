@@ -32,7 +32,9 @@ One thing you should know, **DataMaps** is using the version 3 of D3 so that I'd
 
 ---
 #### Show me the code! 
-Sure, you can find all the code at this [Github Repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/01). Now let me briefly introduce the steps of making this data visualization. 
+Sure, you can find all the code at this [Github Repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/01). 
+
+Now let me briefly introduce the steps of making this data visualization. 
  
 ##### Step 0: Include the JavaScript Libraries.
 ```html

@@ -1,136 +1,55 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hbao.blog","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '6.0.6',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  
-
-<meta name="description" content="What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?">
-<meta name="keywords" content="Java,JVM">
+  <meta name="description" content="What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Introduction to Java Garbage Collection">
 <meta property="og:url" content="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/index.html">
 <meta property="og:site_name" content="Han&#39;s Blog">
 <meta property="og:description" content="What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/garbage.png">
 <meta property="og:image" content="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/reference_counting.png">
 <meta property="og:image" content="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/reachability.png">
 <meta property="og:image" content="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/CDC.png">
 <meta property="og:image" content="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/Copy.png">
-<meta property="og:updated_time" content="2020-02-17T05:33:04.604Z">
+<meta property="article:published_time" content="2018-02-15T00:38:22.000Z">
+<meta property="article:modified_time" content="2020-04-05T02:21:19.206Z">
+<meta property="article:author" content="Han Bao">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Introduction to Java Garbage Collection">
-<meta name="twitter:description" content="What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?">
 <meta name="twitter:image" content="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/garbage.png">
 
+<link rel="canonical" href="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/">
 
 
-
-
-
-  <link rel="canonical" href="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
   };
 </script>
 
@@ -142,272 +61,165 @@
 
 
 
-
-
-
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> 
-
-<div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Han's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Han's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
+
+
+
 <nav class="site-nav">
-  
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
 
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-          
-  <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
-</li>
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
 
-      
-        
-        
-          
-  <li class="menu-item menu-item-tags">
-    <a href="/tags" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
-</li>
+  </li>
+        <li class="menu-item menu-item-tags">
 
-      
-        
-        
-          
-  <li class="menu-item menu-item-categories">
-    <a href="/categories" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
-</li>
+    <a href="/tags" rel="section"><i class="tags fa-fw"></i>Tags</a>
 
-      
-        
-        
-          
-  <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
-</li>
+  </li>
+        <li class="menu-item menu-item-categories">
 
-      
-        
-        
-          
-  <li class="menu-item menu-item-about">
-    <a href="https://brucehenry.github.io" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
-</li>
+    <a href="/categories" rel="section"><i class="th fa-fw"></i>Categories</a>
 
-      
+  </li>
+        <li class="menu-item menu-item-archives">
 
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a>
 
-  
-    
+  </li>
+        <li class="menu-item menu-item-about">
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>About</a>
 
-  
-
-
-  
-
-  
+  </li>
+  </ul>
 </nav>
 
 
-  
 
 
-
- </div>
+</div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-          <div id="content" class="content">
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://hbao.blog/2018/02/14/Introduction-to-Java-Garbage-Collection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Han Bao">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Han's Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Introduction to Java Garbage Collection</h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          Introduction to Java Garbage Collection
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T19:38:22-05:00">2018-02-14</time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Advanced-Java/" itemprop="url" rel="index"><span itemprop="name">Advanced Java</span></a></span>
-
-                
-                
-              
+              <time title="Created: 2018-02-14 19:38:22" itemprop="dateCreated datePublished" datetime="2018-02-14T19:38:22-05:00">2018-02-14</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-04 22:21:19" itemprop="dateModified" datetime="2020-04-04T22:21:19-04:00">2020-04-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Advanced-Java/" itemprop="url" rel="index"><span itemprop="name">Advanced Java</span></a>
+                </span>
+            </span>
 
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-              <div class="post-description">What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?</div>
-          
+            <div class="post-description">What is Garbage? Why do we discuss Garbage Collection? How to identify and collect garbage?</div>
 
         </div>
       </header>
-    
 
     
     
@@ -415,324 +227,200 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+        <h1 id="What-is-Garbage"><a href="#What-is-Garbage" class="headerlink" title="What is Garbage?"></a>What is Garbage?</h1><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/garbage.png" class="" title="[Garbage]">
 
-      
-        <h1 id="What-is-Garbage"><a href="#What-is-Garbage" class="headerlink" title="What is Garbage?"></a>What is Garbage?</h1><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/garbage.png" title="[Garbage]">
 <p>Every time you create a new object, you consume some memory to store it. And when you no longer use it, it becomes garbage.</p>
 <p>Unless you have infinite memory space, you need to collect memory to free the occupied memory space.</p>
 <hr>
 <h1 id="Why-do-we-discuss-Garbage-Collection-in-Java"><a href="#Why-do-we-discuss-Garbage-Collection-in-Java" class="headerlink" title="Why do we discuss Garbage Collection in Java?"></a>Why do we discuss Garbage Collection in Java?</h1><p>In <strong>C/C++</strong>, you need to use <code>free()</code> or <code>delete</code> to release the memory for garbage, or it will cause <strong>memory leak</strong>.</p>
-<p>But in <strong>Java</strong>, you do not need to worry about that. JVM will automatically collect garbage, though <strong>it does not mean that you can create objects without limit</strong>. You can call <code>System.gc()</code> to explicitly tell JVM to do the GC, but JVM may not guarantee to do that.</p>
-<p>When the memory is almost used up, JVM will pause the program for a while to do the GC. And here are the choices, you want the GC to be long and rare, or short and frequent. By learning the strategy of Java GC, you can optimize your Java applications by setting perfect parameters.</p>
+<p>But in <strong>Java</strong>, you do not need to worry about that. JVM will automatically collect garbage, though it does not mean that you can create objects without limit. You can call <code>System.gc()</code> to explicitly tell JVM to do the GC, but JVM may not guarantee to do that.</p>
+<p>When the memory is almost used up, JVM will pause the program for a while to do the GC. And here are the choices, you want the GC to be long and rare, or short and frequent. By learning the strategy of Java GC, you can optimize your JVM and make it suitable for your application.</p>
 <hr>
 <h1 id="How-to-identify-garbage"><a href="#How-to-identify-garbage" class="headerlink" title="How to identify garbage?"></a>How to identify garbage?</h1><p>In general, there are two ways to identify garbage.</p>
 <ul>
-<li><strong>Reference Counting</strong><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/reference_counting.png" title="[Reference Counting]">
+<li><strong>Reference Counting</strong><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/reference_counting.png" class="" title="[Reference Counting]">
+
 </li>
 </ul>
-<p>The easiest way is to count the reference of all the objects, then objects without being referenced are garbage. But there is a bug here, what if two garbage objects reference to each other.</p>
+<p>The easiest way is to count the reference of all the objects, then objects without being referenced are garbage. But here is a bug, what if two garbage objects reference to each other.</p>
 <ul>
-<li><strong>Reachability Analysis</strong><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/reachability.png" title="[Reachability]">
+<li><strong>Reachability Analysis</strong><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/reachability.png" class="" title="[Reachability]">
+
 </li>
 </ul>
-<p>We try to reach all the referenced objects from some root objects, then the ones without reaching are the garbage.</p>
+<p>Try to reach all the referenced objects from some root objects, then the ones without reaching are the garbage.</p>
 <p>The root objects are called <strong>GC Roots</strong>. The GC Roots normally consists of local variables, static variables and active threads.</p>
 <hr>
 <h1 id="How-to-collect-garbage"><a href="#How-to-collect-garbage" class="headerlink" title="How to collect garbage?"></a>How to collect garbage?</h1><p>After identifying the garbage, we need to collect it. There is no one general way to do that because there are different memory area with different features. JVM actually uses different ways for different memory area.</p>
 <p>Here are some basic strategies being mostly used,</p>
-<h2 id="Mark-Delete-and-Compact"><a href="#Mark-Delete-and-Compact" class="headerlink" title="Mark, Delete and Compact"></a>Mark, Delete and Compact</h2><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/CDC.png" title="[Mark, Delete and Compact]">
+<h2 id="Mark-Delete-and-Compact"><a href="#Mark-Delete-and-Compact" class="headerlink" title="Mark, Delete and Compact"></a>Mark, Delete and Compact</h2><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/CDC.png" class="" title="[Mark, Delete and Compact]">
+
 <p>First mark the garbage objects, then delete them. But now the there are empty holes in the memory with probably different sizes, which is very difficult to use later.</p>
 <p>So the next step is to compact the memory by moving the remaining object to one side of the memory.</p>
-<h2 id="Mark-and-Copy"><a href="#Mark-and-Copy" class="headerlink" title="Mark and Copy"></a>Mark and Copy</h2><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/Copy.png" title="[Copy GC]">
+<h2 id="Mark-and-Copy"><a href="#Mark-and-Copy" class="headerlink" title="Mark and Copy"></a>Mark and Copy</h2><img src="/2018/02/14/Introduction-to-Java-Garbage-Collection/Copy.png" class="" title="[Copy GC]">
+
 <p>First mark the garbage objects, then copy the non-garbage objects to a new area of memory.</p>
 <p>However, this strategy needs <strong>twice</strong> memory space as it actually needs.</p>
 <h2 id="Generational-Garbage-Collection"><a href="#Generational-Garbage-Collection" class="headerlink" title="Generational Garbage Collection"></a>Generational Garbage Collection</h2><p>Split the memory into two parts, <strong>young generation</strong> and <strong>old generation</strong>.</p>
 <p><strong>Young generation</strong> area stores objects that are newly created. Every time a object survives from GC, add one to the age of this object. When the age reaches a certain level, move this object to the <strong>old generation</strong> area.</p>
-<p>Eventually, new and less important objects are in the <strong>young generation</strong> area, while old but important objects are in the <strong>old generation</strong> area. This is very important and we will discuss more about it later.</p>
+<p>Eventually, new and less important objects are in the <strong>young generation</strong> area, while old but important objects are in the <strong>old generation</strong> area. </p>
 <hr>
 <p><strong>The End</strong></p>
 <hr>
 
-      
     </div>
 
     
-
     
     
-    
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-            <a href="/tags/JVM/" rel="tag"># JVM</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/02/07/JVM-Memory-Structure/" rel="next" title="JVM Memory Structure">
-                <i class="fa fa-chevron-left"></i> JVM Memory Structure
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/JVM/" rel="tag"># JVM</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/02/07/JVM-Memory-Structure/" rel="prev" title="JVM Memory Structure">
+      <i class="fa fa-chevron-left"></i> JVM Memory Structure
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
 
           </div>
           
 
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Han Bao</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">7</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">categories</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">tags</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/brucehenry" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:bh2016wpi@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Garbage"><span class="nav-number">1.</span> <span class="nav-text">What is Garbage?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-do-we-discuss-Garbage-Collection-in-Java"><span class="nav-number">2.</span> <span class="nav-text">Why do we discuss Garbage Collection in Java?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-identify-garbage"><span class="nav-number">3.</span> <span class="nav-text">How to identify garbage?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-collect-garbage"><span class="nav-number">4.</span> <span class="nav-text">How to collect garbage?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mark-Delete-and-Compact"><span class="nav-number">4.1.</span> <span class="nav-text">Mark, Delete and Compact</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mark-and-Copy"><span class="nav-number">4.2.</span> <span class="nav-text">Mark and Copy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generational-Garbage-Collection"><span class="nav-number">4.3.</span> <span class="nav-text">Generational Garbage Collection</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Han Bao</span>
-
-  
-
-  
-</div>
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Garbage"><span class="nav-number">1.</span> <span class="nav-text">What is Garbage?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-do-we-discuss-Garbage-Collection-in-Java"><span class="nav-number">2.</span> <span class="nav-text">Why do we discuss Garbage Collection in Java?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-identify-garbage"><span class="nav-number">3.</span> <span class="nav-text">How to identify garbage?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-collect-garbage"><span class="nav-number">4.</span> <span class="nav-text">How to collect garbage?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mark-Delete-and-Compact"><span class="nav-number">4.1.</span> <span class="nav-text">Mark, Delete and Compact</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mark-and-Copy"><span class="nav-number">4.2.</span> <span class="nav-text">Mark and Copy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generational-Garbage-Collection"><span class="nav-number">4.3.</span> <span class="nav-text">Generational Garbage Collection</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Han Bao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:hanbao181204@gmail.com" title="E-Mail → mailto:hanbao181204@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/BruceHenry" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BruceHenry" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/hanbao2017/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hanbao2017&#x2F;" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Han Bao</span>
+</div>
+
+        
 
 
 
@@ -741,81 +429,29 @@
 
 
 
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
-
-
-
-  
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -826,26 +462,10 @@
 
 
 
-  
 
 
 
 
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
 
   
 

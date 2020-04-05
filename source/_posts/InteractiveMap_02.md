@@ -22,7 +22,9 @@ However, this time functions in **D3** is largely used to manipulate `svg` eleme
 
 ---
 #### Show me the code! 
-You can find the code at this [Github Repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/02). Now let me briefly introduce the steps of making this data visualization. I will skip the **rendering map** part that has already covered in my previous blog ([Make an Interactive Map 01](https://brucehenry.github.io/blog/public/2018/01/19/InteractiveMap_01/)).
+You can find the code at this [Github Repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/02). 
+
+Let me briefly introduce the steps of making this data visualization. I will skip the **rendering map** part that has already covered in my previous blog.
 
 ##### Step 1: Set Projection with `d3.geo`
 **Projection** means the center of map, so we need it to convert real-world coordinates(longitude and latitude) into locations in our map. It should be **updated** every time user drag or zoom in/out.

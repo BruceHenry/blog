@@ -9,9 +9,9 @@ tags:
 description: Make the map interactive with charts (Echarts)
 ---
 #### Preview: Map with Charts
-This visualization extends from the one [my previous blog](https://brucehenry.github.io/blog/public/2018/01/31/InteractiveMap_02/).
+This visualization extends from the one my previous blog.
 
-I add some **charts** which are able to show some detailed data beyond the map. To generate the charts, I used a tool called [**Echarts**](https://ecomfe.github.io/echarts-doc/public/en/index.html), which is an excellent data visualization tool from Baidu.
+I add some **charts** which are able to show some detailed data beyond the map. To generate the charts, I used a tool called [**Echarts**](https://echarts.apache.org/en/index.html), which is an incubator project of Apache Software Foundation.
 
 Let's first see how it looks,
 <iframe width="820" height="1060" src="https://brucehenry.github.io/blog-webpage/interactive-map/03/map_with_chart.html">You browser does not support iframe tag, <a href="https://brucehenry.github.io/blog-webpage/interactive-map/02/advanced_map.html" target="_blank">click here to visit</a>.</iframe>
@@ -22,12 +22,14 @@ Let's first see how it looks,
 #### About ECharts
 Though **D3** is powerful enough to make charts, it still costs a lot of time to make a good-looking one.
 
-**ECharts** provides various nice charts with well-designed styles, so that is why I choose to use **ECharts**. I think in the future, visualization libraries like **ECharts** will become more popular for general use.
+**ECharts** provides various nice charts with well-designed styles, so that is why I choose to use ECharts. I think in the future, visualization libraries like ECharts will become more popular for general use.
 
 ***
 
 #### Show me the code! 
-You can find the code at this [Github repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/03). Now let me show you how easy to make a chart with **ECharts**.
+You can find the code at this [Github repository](https://github.com/BruceHenry/blog-webpage/tree/master/interactive-map/03).
+
+Now let me show you how easy to make a chart with **ECharts**.
 
 ##### Step 1: Create a Container in HTML
 You need to provide a container `<div>` for the charts.
