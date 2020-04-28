@@ -1,6 +1,7 @@
 ---
 title: Make an Interactive Map 01 - Colorful World Map
 date: 2018-01-19 02:52:54
+updated: 2019-01-01 01:23:45
 categories:
 - Data Visualization
 tags:

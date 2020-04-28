@@ -1,6 +1,7 @@
 ---
 title: JVM Memory Structure
-date: 2018-02-07 20:03:50
+date: 2018-02-07 01:23:45
+updated: 2019-01-01 01:23:45
 categories:
 - Advanced Java
 tags:

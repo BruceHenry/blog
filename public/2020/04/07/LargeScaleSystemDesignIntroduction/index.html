@@ -20,24 +20,27 @@
     var CONFIG = {"hostname":"hbao.blog","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Steps of installing Java and setting environment variables on Windows.">
+  <meta name="description" content="Introduction to Large Scale System Design">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Install Java on Windows">
-<meta property="og:url" content="http://hbao.blog/2017/11/19/JavaInstallation/index.html">
+<meta property="og:title" content="Large Scale System Design Introduction">
+<meta property="og:url" content="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/index.html">
 <meta property="og:site_name" content="Han&#39;s Blog">
-<meta property="og:description" content="Steps of installing Java and setting environment variables on Windows.">
+<meta property="og:description" content="Introduction to Large Scale System Design">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://hbao.blog/2017/11/19/JavaInstallation/system-setting.png">
-<meta property="og:image" content="http://hbao.blog/2017/11/19/JavaInstallation/advanced.png">
-<meta property="og:image" content="http://hbao.blog/2017/11/19/JavaInstallation/version.png">
-<meta property="article:published_time" content="2017-11-19T07:45:45.000Z">
-<meta property="article:modified_time" content="2019-01-01T06:23:45.000Z">
+<meta property="og:image" content="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/01Basic.png">
+<meta property="og:image" content="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/02Cache.png">
+<meta property="og:image" content="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/03ReadWriteDB.png">
+<meta property="og:image" content="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/04CDN.png">
+<meta property="og:image" content="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/05SearchEngine.png">
+<meta property="og:image" content="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/06Service.png">
+<meta property="article:published_time" content="2020-04-07T05:23:45.000Z">
+<meta property="article:modified_time" content="2020-04-21T05:23:45.000Z">
 <meta property="article:author" content="Han Bao">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="System Design">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hbao.blog/2017/11/19/JavaInstallation/system-setting.png">
+<meta name="twitter:image" content="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/01Basic.png">
 
-<link rel="canonical" href="http://hbao.blog/2017/11/19/JavaInstallation/">
+<link rel="canonical" href="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/">
 
 
 <script id="page-configurations">
@@ -50,7 +53,7 @@
   };
 </script>
 
-  <title>Install Java on Windows | Han's Blog</title>
+  <title>Large Scale System Design Introduction | Han's Blog</title>
   
 
 
@@ -170,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hbao.blog/2017/11/19/JavaInstallation/">
+    <link itemprop="mainEntityOfPage" href="http://hbao.blog/2020/04/07/LargeScaleSystemDesignIntroduction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +186,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Install Java on Windows
+          Large Scale System Design Introduction
         </h1>
 
         <div class="post-meta">
@@ -193,14 +196,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2017-11-19 02:45:45" itemprop="dateCreated datePublished" datetime="2017-11-19T02:45:45-05:00">2017-11-19</time>
+              <time title="Created: 2020-04-07 01:23:45" itemprop="dateCreated datePublished" datetime="2020-04-07T01:23:45-04:00">2020-04-07</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-01-01 01:23:45" itemprop="dateModified" datetime="2019-01-01T01:23:45-05:00">2019-01-01</time>
+                <time title="Modified: 2020-04-21 01:23:45" itemprop="dateModified" datetime="2020-04-21T01:23:45-04:00">2020-04-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,12 +211,12 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Basic-Java/" itemprop="url" rel="index"><span itemprop="name">Basic Java</span></a>
+                  <a href="/categories/System-Design/" itemprop="url" rel="index"><span itemprop="name">System Design</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Steps of installing Java and setting environment variables on Windows.</div>
+            <div class="post-description">Introduction to Large Scale System Design</div>
 
         </div>
       </header>
@@ -224,42 +227,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Download-and-Install-JDK"><a href="#Download-and-Install-JDK" class="headerlink" title="Download and Install JDK."></a>Download and Install JDK.</h1><p>To develop Java programs, you need to install <strong>JDK</strong> (Java Development Kit). You may also heard of <strong>JRE</strong> (Java Runtime Environment), which is essential to run Java program. Well, JRE is contained in the JDK, so all you need to do is to download and install JDK.</p>
-<p>There are many ways to download JDK, but I recommend you to download it directly from <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle</a> or <a href="https://openjdk.java.net/" target="_blank" rel="noopener">OpenJDK</a>.</p>
-<p>After downloading, install it just as you install other software. You’d better remember where you install it, because you need to set the environment variable later.</p>
-<hr>
-<h1 id="Set-the-Environment-Variables"><a href="#Set-the-Environment-Variables" class="headerlink" title="Set the Environment Variables"></a>Set the Environment Variables</h1><p>This step is very <strong>important</strong>, </p>
-<ol>
-<li><p>In Control Panel, click “System and Security”, then click “System”</p>
-</li>
-<li><p>Click “Advanced system settings”</p>
-<img src="/2017/11/19/JavaInstallation/system-setting.png" class="" title="[Advanced system settings]">
-</li>
-<li><p>Find “Environment Variables” under the “Advanced’” tab</p>
-<img src="/2017/11/19/JavaInstallation/advanced.png" class="" title="[Advanced]">
-</li>
-<li><p>Add the following Environment Variables</p>
-</li>
-</ol>
-<ul>
-<li>JAVA_HOME：<code>C:\Program Files\Java\jdk1.8.0_102</code> (<strong>Replace with the path where you installed JDK</strong>)</li>
-<li>JDK_HOME：<code>%JAVA_HOME%</code></li>
-<li>JRE_HOME：<code>%JAVA_HOME%\jre</code></li>
-<li>CLASSPATH：<code>.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</code></li>
-<li>Path： <strong>Keep existing content and append</strong> <code>%JAVA_HOME%\bin</code> </li>
-</ul>
-<p><strong>Note:</strong>  You may need to append  <code>;</code> first. It depends on whether this was a <code>;</code> at the end of your original path. So you may append <code>;%JAVA_HOME%\bin</code>. Do <strong>NOT</strong> change the original content of “Path”.</p>
-<hr>
-<h1 id="Examine-the-Installation"><a href="#Examine-the-Installation" class="headerlink" title="Examine the Installation"></a>Examine the Installation</h1><p>Open the Terminal (On Windows, press ‘Win’ + ‘R’, then input <code>cmd</code> and press ‘Enter’), input:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+        <h1 id="Initial-Phase"><a href="#Initial-Phase" class="headerlink" title="Initial Phase"></a>Initial Phase</h1><p>First, build a simple system as following, a basic application server with a database server.</p>
+<img src="/2020/04/07/LargeScaleSystemDesignIntroduction/01Basic.png" class="" title="[Basic]">
 
-<p>You should see the version information of Java, which means your Java installation is successful.</p>
-<img src="/2017/11/19/JavaInstallation/version.png" class="" title="[Java Version]">
-<p>Welcome to the world of Java.</p>
 <hr>
-<p><strong>The End</strong></p>
-<hr>
+<h1 id="Bring-in-Cache"><a href="#Bring-in-Cache" class="headerlink" title="Bring in Cache"></a>Bring in Cache</h1><p>When the amount of incoming request increases, the database first starts crashing due to disk IO bandwidth limit, though SSD hard disk has much better performance nowadays. To avoid reaching IO limit, we could bring <strong>cache</strong> into the architecture. <strong>Redis</strong> and <strong>Memcached</strong> are 2 most common used in-memory cache tools. Redis is single-thread and more popular because it supports more data structure, data-persistence and cluster mode. When the application is going to retrive data, it will first try to read in the cache. With cache, the amount of request going to database will be reduced , as most requests are reading the data instead of writing.</p>
+<p>As for application, a <strong>cache update mechanism</strong> should be added to keep the cache up-to-date.</p>
+<img src="/2020/04/07/LargeScaleSystemDesignIntroduction/02Cache.png" class="" title="[Cache]">
 
+<hr>
+<h1 id="Separate-Read-and-Write"><a href="#Separate-Read-and-Write" class="headerlink" title="Separate Read and Write"></a>Separate Read and Write</h1><p>For data-driven company, data is the most valuable asset. Therefore, data stored in the database must have a second backup, or even several replicas. Also for most database usage, READ is much more often than WRITE. So in order to reduce the pressure of database server, we can separate READ operation from our master database, as following,</p>
+<img src="/2020/04/07/LargeScaleSystemDesignIntroduction/03ReadWriteDB.png" class="" title="[ReadWriteDB]">
+
+<hr>
+<h1 id="Load-Balancer-and-CDN"><a href="#Load-Balancer-and-CDN" class="headerlink" title="Load Balancer and CDN"></a>Load Balancer and CDN</h1><h2 id="Load-Balancer"><a href="#Load-Balancer" class="headerlink" title="Load Balancer"></a>Load Balancer</h2><p>For an application (Java/Python/PHP) server, QPS(Query Per Second) limit is about 1000. So when requests increase, the application server could be the new bottleneck. Then multiple application instances should be run to share the high-concurrent requests. Therefore, to distribute requests equally into different application instances, a load balancer is needed. <strong>Nginx</strong> and <strong>HAProxy</strong> are 2 most famous load balancers.</p>
+<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p>For most websites, static files are rarely changed. And some of the static files like image are relatively too large for mobile users. So these static files could be cached by CDN (content Delivery Network). Also, CDN provider normally have multiple servers located in different regions, so CDN could also speed up web pages for users who locates far from the actual server.</p>
+<p>If the application has already been implemented, make sure to check that no global data is stored locally, because the application now consists of multiple instances.</p>
+<img src="/2020/04/07/LargeScaleSystemDesignIntroduction/04CDN.png" class="" title="[CDN]">
+
+<hr>
+<h1 id="More-Data"><a href="#More-Data" class="headerlink" title="More Data"></a>More Data</h1><h2 id="NoSQL-Database"><a href="#NoSQL-Database" class="headerlink" title="NoSQL Database"></a>NoSQL Database</h2><p>For a complex application, it is difficult to store all kinds of data in the relational database. So now it is time to bring in NoSQL database. Most NoSQL databases are designed for large-scale use. </p>
+<h2 id="Search-Engine"><a href="#Search-Engine" class="headerlink" title="Search Engine"></a>Search Engine</h2><p>For some application, search could be an essential feature. An search engine tool like ElasticSearch could help here. It can also be used for log search, which is important for monitoring applications.</p>
+<img src="/2020/04/07/LargeScaleSystemDesignIntroduction/05SearchEngine.png" class="" title="[SearchEngine]">
+
+<hr>
+<h1 id="Separate-Service"><a href="#Separate-Service" class="headerlink" title="Separate Service"></a>Separate Service</h1><h2 id="Multiple-Application"><a href="#Multiple-Application" class="headerlink" title="Multiple Application"></a>Multiple Application</h2><p>As an application grows, it could be too large to maintain. Also for a development team, there could be applications that use some basic features in common, like user management. Therefore, some common used services could be separated from applications. For different services, normally they do not share common data in the database. So we can also use isolated database for each service, which reduces the workload of each database further.</p>
+<h2 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h2><p>Imagine a scenario, an application called A is trying send a message to another application called B, and B is busy and does not respond immediately. Now A has to wait for the response from B, so that A is blocked. What if A needs to notify more than multiple applications/services, A could be blocked for seconds. To avoid this, message queue tools are needed. With message queue, A could just send the message to message queue, and message queue will do the rest notification. This frees A from being blocked, and enables A to deal with its following work.</p>
+<p>And here is our final phase,</p>
+<img src="/2020/04/07/LargeScaleSystemDesignIntroduction/06Service.png" class="" title="[Service]">
     </div>
 
     
@@ -268,7 +263,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/System-Design/" rel="tag"># System Design</a>
           </div>
 
         
@@ -276,11 +271,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2017/11/19/ArrayToList/" rel="next" title="How to Convert between Array and List in Java">
-      How to Convert between Array and List in Java <i class="fa fa-chevron-right"></i>
+    <a href="/2018/02/14/Introduction-to-Java-Garbage-Collection/" rel="prev" title="Introduction to Java Garbage Collection">
+      <i class="fa fa-chevron-left"></i> Introduction to Java Garbage Collection
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -339,7 +334,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Download-and-Install-JDK"><span class="nav-number">1.</span> <span class="nav-text">Download and Install JDK.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-the-Environment-Variables"><span class="nav-number">2.</span> <span class="nav-text">Set the Environment Variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examine-the-Installation"><span class="nav-number">3.</span> <span class="nav-text">Examine the Installation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Initial-Phase"><span class="nav-number">1.</span> <span class="nav-text">Initial Phase</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bring-in-Cache"><span class="nav-number">2.</span> <span class="nav-text">Bring in Cache</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Separate-Read-and-Write"><span class="nav-number">3.</span> <span class="nav-text">Separate Read and Write</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Load-Balancer-and-CDN"><span class="nav-number">4.</span> <span class="nav-text">Load Balancer and CDN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Load-Balancer"><span class="nav-number">4.1.</span> <span class="nav-text">Load Balancer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN"><span class="nav-number">4.2.</span> <span class="nav-text">CDN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More-Data"><span class="nav-number">5.</span> <span class="nav-text">More Data</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL-Database"><span class="nav-number">5.1.</span> <span class="nav-text">NoSQL Database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-Engine"><span class="nav-number">5.2.</span> <span class="nav-text">Search Engine</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Separate-Service"><span class="nav-number">6.</span> <span class="nav-text">Separate Service</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiple-Application"><span class="nav-number">6.1.</span> <span class="nav-text">Multiple Application</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Message-Queue"><span class="nav-number">6.2.</span> <span class="nav-text">Message Queue</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

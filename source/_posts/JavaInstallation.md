@@ -1,6 +1,7 @@
 ---
 title: Install Java on Windows
 date: 2017-11-19 02:45:45
+updated: 2019-01-01 01:23:45
 categories: Basic Java
 tags: Java
 description: Steps of installing Java and setting environment variables on Windows.

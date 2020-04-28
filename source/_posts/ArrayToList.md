@@ -1,6 +1,7 @@
 ---
 title: How to Convert between Array and List in Java
 date: 2017-11-19 02:52:54
+updated: 2019-01-01 01:23:45
 categories: Basic Java
 tags: Java
 description: Introduction of converting Array and List to each other in Java.

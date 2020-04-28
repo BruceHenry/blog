@@ -1,6 +1,7 @@
 ---
 title: Introduction to Java Garbage Collection
 date: 2018-02-14 19:38:22
+updated: 2019-01-01 01:23:45
 categories:
 - Advanced Java
 tags:
